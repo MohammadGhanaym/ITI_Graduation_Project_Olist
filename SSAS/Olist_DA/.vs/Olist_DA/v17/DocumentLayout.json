@@ -1,0 +1,295 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Fact Marketing Leads.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Fact Marketing Leads.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sellers 1.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Sellers 1.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Leads.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Leads.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sales Rep.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Sales Rep.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Payment Type.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Payment Type.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Order Details 1.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Order Details 1.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Fact Order Sales.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Fact Order Sales.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Order Details.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Order Details.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Time.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Time.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Products.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Products.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Customers.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Customers.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sellers.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Dim Sellers.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Marketing Cube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Marketing Cube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Payment Cube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Payment Cube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Sales Cube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Sales Cube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Marketing DM.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Marketing DM.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Sales DM.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}|Olist_DA\\Olist_DA.dwproj|solutionrelative:Olist_DA\\Sales DM.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fact Marketing Leads.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Fact Marketing Leads.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Fact Marketing Leads.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Fact Marketing Leads.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Fact Marketing Leads.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-20T14:09:34.749Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Fact Order Sales.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Fact Order Sales.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Fact Order Sales.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Fact Order Sales.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Fact Order Sales.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-20T14:08:36.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dim Order Details 1.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Order Details 1.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Order Details 1.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Order Details 1.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Order Details 1.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-20T14:08:24.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dim Payment Type.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Payment Type.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Payment Type.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Payment Type.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Payment Type.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T13:39:09.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dim Sales Rep.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sales Rep.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Sales Rep.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sales Rep.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Sales Rep.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T13:38:57.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dim Leads.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Leads.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Leads.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Leads.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Leads.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T13:38:38.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dim Sellers 1.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sellers 1.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Sellers 1.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sellers 1.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Sellers 1.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-20T14:07:56.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dim Order Details.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Order Details.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Order Details.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Order Details.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Order Details.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:43:21.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dim Date.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Date.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Date.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Date.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Date.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:45:00.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dim Time.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Time.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Time.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Time.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Time.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:44:26.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Dim Products.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Products.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Products.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Products.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Products.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:02:50.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Dim Customers.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Customers.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Customers.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Customers.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Customers.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:15:41.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Dim Sellers.dim [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sellers.dim",
+              "RelativeDocumentMoniker": "Olist_DA\\Dim Sellers.dim",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Dim Sellers.dim [Design]",
+              "RelativeToolTip": "Olist_DA\\Dim Sellers.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:44:40.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Marketing Cube.cube [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Marketing Cube.cube",
+              "RelativeDocumentMoniker": "Olist_DA\\Marketing Cube.cube",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Marketing Cube.cube [Design]",
+              "RelativeToolTip": "Olist_DA\\Marketing Cube.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:51:22.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Marketing DM.dsv [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Marketing DM.dsv",
+              "RelativeDocumentMoniker": "Olist_DA\\Marketing DM.dsv",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Marketing DM.dsv [Design]",
+              "RelativeToolTip": "Olist_DA\\Marketing DM.dsv [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:50:07.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Payment Cube.cube [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Payment Cube.cube",
+              "RelativeDocumentMoniker": "Olist_DA\\Payment Cube.cube",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Payment Cube.cube [Design]",
+              "RelativeToolTip": "Olist_DA\\Payment Cube.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:49:07.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Sales Cube.cube [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Sales Cube.cube",
+              "RelativeDocumentMoniker": "Olist_DA\\Sales Cube.cube",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Sales Cube.cube [Design]",
+              "RelativeToolTip": "Olist_DA\\Sales Cube.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T12:24:08.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Sales DM.dsv [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Sales DM.dsv",
+              "RelativeDocumentMoniker": "Olist_DA\\Sales DM.dsv",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSAS\\Olist_DA\\Olist_DA\\Sales DM.dsv [Design]",
+              "RelativeToolTip": "Olist_DA\\Sales DM.dsv [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-19T11:58:08.13Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

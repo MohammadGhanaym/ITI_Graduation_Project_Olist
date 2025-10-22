@@ -1,0 +1,173 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Olist_DA</Database>
+    <Server>DESKTOP-4OLE76B\MSSQLSERVER01</Server>
+    <ConnectionString>Data Source=DESKTOP-4OLE76B\MSSQLSERVER01;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>NE4TmJlpIWtJTEeA4lO3PpwNX5M=10/19/2025 2:57:29 PM10/19/2025 2:57:29 PM</TimeStamp>
+        <ID>
+          <String>Olist DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>2Wmz7tLtNzVfY1OLeAO+RMRY3Sc=10/22/2025 12:23:45 AM10/19/2025 2:58:04 PM</TimeStamp>
+        <ID>
+          <String>Sales DM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>+KhYuXMsVKmHngSHHDzA/amKdLw=10/22/2025 2:43:01 AM10/19/2025 3:48:47 PM</TimeStamp>
+        <ID>
+          <String>Payment DM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>iZDhu6d+h7UG+9X3Q/r11LNm5pU=10/22/2025 2:44:26 AM10/19/2025 3:50:04 PM</TimeStamp>
+        <ID>
+          <String>Marketing DM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NXHislUubK7GUIQJq+a7TsxC1NI=10/19/2025 3:44:00 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Dim Products</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ctD3COzn0UUDzrzc/wChAG1H/w8=10/19/2025 3:44:24 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Dim Customers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UaM4ASbcvl3NJNXP+Zk2mtvzW9E=10/19/2025 3:44:38 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Dim Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>pSdiqTpyNoqVSC1GMh6WJQNe7uw=10/19/2025 3:44:58 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Dim Sellers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>M6Htxj2ff/sZPTLT7fH8KziCDVM=10/21/2025 5:55:06 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>sgy/zpiG2GM7tr5kFQMJtNbSLfc=10/22/2025 2:58:51 AM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Dim Order Details</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EU6RvWtP0YlcKw6X8QW8Jx7bFT4=10/19/2025 2:59:09 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Fact Order Sales</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Kj/PuY/V87GK1lhe8lfog/c4ziM=10/22/2025 2:54:52 AM10/19/2025 3:49:07 PM</TimeStamp>
+        <ID>
+          <String>Dim Order Details 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>F1OmapqHkE7kp6dgd/TgM43c0Xo=10/19/2025 4:39:25 PM10/19/2025 3:49:07 PM</TimeStamp>
+        <ID>
+          <String>Dim Payment Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4/O10WfFhGJSgMd0uxdA6EBs+Xc=10/21/2025 12:49:02 AM10/21/2025 12:47:31 AM</TimeStamp>
+        <ID>
+          <String>Dim Sales Rep</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>0k21JXvRK7MB0gTNJ1NEIhKtjps=10/21/2025 12:49:45 AM10/21/2025 12:47:31 AM</TimeStamp>
+        <ID>
+          <String>Dim Sellers 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ngC8oGHn4mmlLRnhfoDhOASAhCc=10/21/2025 12:50:06 AM10/21/2025 12:47:31 AM</TimeStamp>
+        <ID>
+          <String>Dim Leads</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5mSA2PNq4Y+YAuQIIY289klz064=10/21/2025 10:39:16 PM10/21/2025 12:47:31 AM</TimeStamp>
+        <ID>
+          <String>Dim Date 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>U5h4kVLFIXFco3FbtlB/XdA1jMc=10/22/2025 12:23:45 AM10/19/2025 2:59:08 PM0Qw78atYVCeYAVdKOj8VKoLJ8wo=10/21/2025 4:56:08 PM10/19/2025 2:59:08 PM</TimeStamp>
+        <ID>
+          <String>Sales Cube</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>H43CdWErj1MKZD/Cl+k7+QJih+E=10/22/2025 2:54:52 AM10/19/2025 3:49:07 PMR/ll8fmIjufI+Qpkrh4WYvNW0uI=10/19/2025 3:49:07 PM10/19/2025 3:49:07 PM</TimeStamp>
+        <ID>
+          <String>Payment Cube</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>0y0mQ7klvdH7qiyjaa4Hh74vmFg=10/22/2025 12:23:45 AM10/21/2025 12:47:30 AMBV0iWmyaMsRxuM3wJ4KuoZKB0kQ=10/21/2025 12:47:31 AM10/21/2025 12:47:31 AM</TimeStamp>
+        <ID>
+          <String>Marketing DM</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>6TlpBlLhNfUasKMOzHzUVZt8t/g=10/19/2025 2:57:02 PM10/19/2025 2:57:02 PM</TimeStamp>
+      <ID>
+        <String>Olist_DA</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2025-10-21T23:58:56.44Z</LastDeployed>
+</DeploymentSnapshot>
