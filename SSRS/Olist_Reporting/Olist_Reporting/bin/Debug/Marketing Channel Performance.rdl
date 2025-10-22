@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>18.0.11116.177</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-21T17:49:01.1027777Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-22T23:27:26.9364286Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -154,10 +154,20 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
     <DataSet Name="Business_Type">
       <Query>
         <DataSourceName>Olist_DS</DataSourceName>
-        <CommandText> SELECT NON EMPTY { [Measures].[Closed Deals Count] } ON COLUMNS, NON EMPTY { ([Dim Leads].[Business Type].[Business Type].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Marketing] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+        <CommandText>
+SELECT NON EMPTY { [Measures].[Closed Deals Count] } ON COLUMNS,
+NON EMPTY {
+    EXCEPT(
+        [Dim Leads].[Business Type].[Business Type].ALLMEMBERS,
+        { [Dim Leads].[Business Type].[Business Type].[N/A] }
+    )
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS
+FROM [Marketing]
+CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
         <rd:DesignerState>
           <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
             <CommandType>MDX</CommandType>
+            <Type>Query</Type>
             <QuerySpecification xsi:type="MDXQuerySpecification">
               <Select>
                 <Items>
@@ -171,6 +181,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                     </ID>
                     <ItemCaption>Business Type</ItemCaption>
                     <UniqueName>true</UniqueName>
+                    <MemberValue>true</MemberValue>
                   </Item>
                   <Item>
                     <ID xsi:type="Measure">
@@ -197,12 +208,20 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Filter>
               <Calculations />
               <Aggregates />
-              <QueryProperties>
-                <IncludeMemberValue>true</IncludeMemberValue>
-              </QueryProperties>
+              <QueryProperties />
             </QuerySpecification>
             <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Closed Deals Count] } ON COLUMNS, NON EMPTY { ([Dim Leads].[Business Type].[Business Type].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Marketing] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+              <Statement>
+SELECT NON EMPTY { [Measures].[Closed Deals Count] } ON COLUMNS,
+NON EMPTY {
+    EXCEPT(
+        [Dim Leads].[Business Type].[Business Type].ALLMEMBERS,
+        { [Dim Leads].[Business Type].[Business Type].[N/A] }
+    )
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS
+FROM [Marketing]
+CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS
+</Statement>
               <ParameterDefinitions />
             </Query>
           </QueryDefinition>
@@ -222,10 +241,19 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
     <DataSet Name="Lead_Type">
       <Query>
         <DataSourceName>Olist_DS</DataSourceName>
-        <CommandText> SELECT NON EMPTY { [Measures].[Avg Deal Close Time] } ON COLUMNS, NON EMPTY { ([Dim Leads].[Lead Type].[Lead Type].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Marketing] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+        <CommandText>SELECT NON EMPTY { [Measures].[Avg Deal Close Time] } ON COLUMNS,
+NON EMPTY {
+    EXCEPT(
+        [Dim Leads].[Lead Type].[Lead Type].ALLMEMBERS,
+        { [Dim Leads].[Lead Type].[Lead Type].[N/A] }
+    )
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS
+FROM [Marketing]
+CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
         <rd:DesignerState>
           <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
             <CommandType>MDX</CommandType>
+            <Type>Query</Type>
             <QuerySpecification xsi:type="MDXQuerySpecification">
               <Select>
                 <Items>
@@ -239,6 +267,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                     </ID>
                     <ItemCaption>Lead Type</ItemCaption>
                     <UniqueName>true</UniqueName>
+                    <MemberValue>true</MemberValue>
                   </Item>
                   <Item>
                     <ID xsi:type="Measure">
@@ -265,12 +294,18 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Filter>
               <Calculations />
               <Aggregates />
-              <QueryProperties>
-                <IncludeMemberValue>true</IncludeMemberValue>
-              </QueryProperties>
+              <QueryProperties />
             </QuerySpecification>
             <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Avg Deal Close Time] } ON COLUMNS, NON EMPTY { ([Dim Leads].[Lead Type].[Lead Type].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Marketing] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+              <Statement>SELECT NON EMPTY { [Measures].[Avg Deal Close Time] } ON COLUMNS,
+NON EMPTY {
+    EXCEPT(
+        [Dim Leads].[Lead Type].[Lead Type].ALLMEMBERS,
+        { [Dim Leads].[Lead Type].[Lead Type].[N/A] }
+    )
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS
+FROM [Marketing]
+CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
               <ParameterDefinitions />
             </Query>
           </QueryDefinition>
@@ -389,7 +424,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#eef2f4</BackgroundColor>
+              <BackgroundColor>#c7d9e5</BackgroundColor>
             </Style>
           </Rectangle>
           <Tablix Name="table1">
@@ -812,6 +847,8 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                                     </ChartDataPointValues>
                                     <ChartDataLabel>
                                       <Style />
+                                      <UseValueAsLabel>true</UseValueAsLabel>
+                                      <Position>Right</Position>
                                     </ChartDataLabel>
                                     <Style>
                                       <Color>#577c8e</Color>
@@ -1273,7 +1310,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             <Top>1.19375in</Top>
             <Left>0.38542in</Left>
             <Height>0.43in</Height>
-            <Width>10.76667in</Width>
+            <Width>10.76666in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
@@ -1666,6 +1703,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
+                      <ToolTip>=Sum(Fields!Avg_Deal_Close_Time.Value)</ToolTip>
                       <Style>
                         <Color>#577c8e</Color>
                       </Style>

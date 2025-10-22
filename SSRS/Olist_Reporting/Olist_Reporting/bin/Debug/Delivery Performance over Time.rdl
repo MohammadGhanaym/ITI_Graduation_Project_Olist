@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>18.0.11116.177</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T21:36:15.8422218Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-22T23:36:15.3039999Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -933,7 +933,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Late_Orders__.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Late_Orders__.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -972,7 +972,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Avg_Seller_Fulfillment_Time.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Avg_Seller_Fulfillment_Time.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1011,7 +1011,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Avg_Carrier_Shipping_Time.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Avg_Carrier_Shipping_Time.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1257,7 +1257,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Late_Orders__.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Late_Orders__.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1299,7 +1299,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Avg_Seller_Fulfillment_Time.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Avg_Seller_Fulfillment_Time.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1341,7 +1341,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Avg_Carrier_Shipping_Time.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Avg_Carrier_Shipping_Time.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1585,7 +1585,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Late_Orders__.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Late_Orders__.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1627,7 +1627,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Avg_Seller_Fulfillment_Time.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Avg_Seller_Fulfillment_Time.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1669,7 +1669,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Avg_Carrier_Shipping_Time.Value)</Value>
+                                  <Value>=Sum(Fields!Orders_Count.Value * Fields!Avg_Carrier_Shipping_Time.Value) / Sum(Fields!Orders_Count.Value)</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -2639,7 +2639,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#eef2f4</BackgroundColor>
+              <BackgroundColor>#c7d9e5</BackgroundColor>
             </Style>
           </Rectangle>
         </ReportItems>

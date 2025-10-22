@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>18.0.11116.177</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T00:38:54.3279397Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-22T23:36:39.0874260Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -1275,7 +1275,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#eef2f4</BackgroundColor>
+              <BackgroundColor>#c7d9e5</BackgroundColor>
             </Style>
           </Rectangle>
         </ReportItems>
