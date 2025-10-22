@@ -52,10 +52,12 @@
     <DataSource Include="Olist_DS.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Delivery Performance over Time.rdl" />
     <Report Include="Marketing Channel Performance.rdl" />
     <Report Include="Payment Provider Performance.rdl" />
     <Report Include="Sales Performance by State.rdl" />
     <Report Include="Sales Rep Performance.rdl" />
+    <Report Include="Seller Performance.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>

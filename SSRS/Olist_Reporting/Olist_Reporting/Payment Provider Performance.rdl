@@ -318,61 +318,25 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Payment Provider Performance</Value>
-                    <Style>
-                      <FontFamily>open Sans</FontFamily>
-                      <FontSize>24pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Color>#2f4157</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>textbox1</rd:DefaultName>
-            <Left>1.55333in</Left>
-            <Height>0.98833in</Height>
-            <Width>6.36111in</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="table1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.77865in</Width>
+                  <Width>2.27865in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.77865in</Width>
+                  <Width>2.1224in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.77865in</Width>
+                  <Width>2.09115in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.11198in</Width>
+                  <Width>2.25419in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.22in</Height>
+                  <Height>0.2825in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -388,7 +352,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#2f4157</Color>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -423,7 +387,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <BackgroundColor>#c7d9e5</BackgroundColor>
+                            <BackgroundColor>#2f4157</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -450,7 +414,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#2f4157</Color>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -469,7 +433,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <TopBorder>
                               <Width>1.5pt</Width>
                             </TopBorder>
-                            <BackgroundColor>#c7d9e5</BackgroundColor>
+                            <BackgroundColor>#2f4157</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -496,7 +460,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#2f4157</Color>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -515,7 +479,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <TopBorder>
                               <Width>1.5pt</Width>
                             </TopBorder>
-                            <BackgroundColor>#c7d9e5</BackgroundColor>
+                            <BackgroundColor>#2f4157</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -542,7 +506,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#2f4157</Color>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -561,7 +525,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <TopBorder>
                               <Width>1.5pt</Width>
                             </TopBorder>
-                            <BackgroundColor>#c7d9e5</BackgroundColor>
+                            <BackgroundColor>#2f4157</BackgroundColor>
                             <FontFamily />
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -803,27 +767,12 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>payment</DataSetName>
-            <Top>1.01611in</Top>
-            <Left>0.46652in</Left>
-            <Height>0.53417in</Height>
-            <Width>7.44793in</Width>
-            <ZIndex>1</ZIndex>
+            <Top>1.19097in</Top>
+            <Left>0.82144in</Left>
+            <Height>0.59667in</Height>
+            <Width>8.74639in</Width>
             <Style />
           </Tablix>
-          <Image Name="Image2">
-            <Source>Embedded</Source>
-            <Value>AdobeExpressfile</Value>
-            <Sizing>FitProportional</Sizing>
-            <Left>0.46652in</Left>
-            <Height>0.98833in</Height>
-            <Width>1.07292in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
           <Chart Name="Chart1">
             <ChartCategoryHierarchy>
               <ChartMembers>
@@ -866,7 +815,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         <Position>Outside</Position>
                       </ChartDataLabel>
                       <Style>
-                        <Color>#856566</Color>
+                        <Color>#577c8e</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -1158,11 +1107,11 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Style>
             </ChartNoDataMessage>
             <DataSetName>order_status_data</DataSetName>
-            <Top>1.65097in</Top>
-            <Left>0.47694in</Left>
+            <Top>1.85708in</Top>
+            <Left>0.82145in</Left>
             <Height>2.55208in</Height>
-            <Width>7.44792in</Width>
-            <ZIndex>3</ZIndex>
+            <Width>8.74638in</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -1172,11 +1121,168 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </Chart>
+          <Rectangle Name="Rectangle2">
+            <ReportItems>
+              <Textbox Name="textbox6">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Payment Provider Performance</Value>
+                        <Style>
+                          <FontFamily>open Sans</FontFamily>
+                          <FontSize>24pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>#2f4157</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>textbox1</rd:DefaultName>
+                <Left>1.08681in</Left>
+                <Height>0.51958in</Height>
+                <Width>5.59652in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Image Name="Image3">
+                <Source>Embedded</Source>
+                <Value>AdobeExpressfile</Value>
+                <Sizing>FitProportional</Sizing>
+                <Top>0.01167in</Top>
+                <Height>1.02875in</Height>
+                <Width>1.07292in</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Image>
+              <Textbox Name="Textbox9">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>="Executed: " &amp; Format(Globals!ExecutionTime, "yyyy-MM-dd HH:mm")</Value>
+                        <Style>
+                          <FontFamily>Open Sans</FontFamily>
+                          <FontSize>12pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>#2f4157</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox8</rd:DefaultName>
+                <Top>0.68625in</Top>
+                <Left>5.94722in</Left>
+                <Height>0.35417in</Height>
+                <Width>2.79917in</Width>
+                <ZIndex>2</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox11">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>="Payment Type: "</Value>
+                        <Style>
+                          <FontFamily>Open Sans</FontFamily>
+                          <FontSize>11pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>#2f4157</Color>
+                        </Style>
+                      </TextRun>
+                      <TextRun>
+                        <Value>=IIF(Parameters!Payment_Type.Count = 0, "None", Join(Parameters!Payment_Type.Label, ", "))</Value>
+                        <Style>
+                          <FontFamily>Open Sans</FontFamily>
+                          <FontSize>11pt</FontSize>
+                          <Color>#2f4157</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value />
+                        <Style>
+                          <FontFamily>Open Sans</FontFamily>
+                          <FontSize>12pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>#2f4157</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox11</rd:DefaultName>
+                <Top>0.53125in</Top>
+                <Left>1.11459in</Left>
+                <Height>0.50917in</Height>
+                <Width>4.81874in</Width>
+                <ZIndex>3</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Left>0.82144in</Left>
+            <Height>1.04042in</Height>
+            <Width>8.74639in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>#eef2f4</BackgroundColor>
+            </Style>
+          </Rectangle>
         </ReportItems>
-        <Height>5.39583in</Height>
+        <Height>5.4075in</Height>
         <Style />
       </Body>
-      <Width>10.04292in</Width>
+      <Width>11.57422in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>18.0.11116.177</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T00:43:27.9056618Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-22T02:02:23.3702453Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -17,26 +17,22 @@
     <DataSource Name="Olist_DS">
       <DataSourceReference>Olist_DS</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>19437aab-89a2-4182-9998-c89699147b16</rd:DataSourceID>
+      <rd:DataSourceID>8de01ba9-802b-4c6d-a3ab-87dbe4fde111</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="state_data">
+    <DataSet Name="seller_data">
       <Query>
         <DataSourceName>Olist_DS</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="Year">
-            <Value>="{" &amp; "[Dim Date].[Year].[Year].[" &amp; Join(Parameters!Year.Value, "],[Dim Date].[Year].[Year].[") &amp; "]}"</Value>
-            <rd:UserDefined>true</rd:UserDefined>
-          </QueryParameter>
-          <QueryParameter Name="Month">
-            <Value>="{" &amp; "[Dim Date].[Month Name].[Month Name].[" &amp; Join(Parameters!Month.Value, "],[Dim Date].[Month Name].[Month Name].[") &amp; "]}"</Value>
+          <QueryParameter Name="State">
+            <Value>="{" &amp; "[Dim Sellers].[State].[State].[" &amp; Join(Parameters!State.Value, "],[Dim Sellers].[State].[State].[") &amp; "]}"</Value>
             <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT NON EMPTY { [Measures].[Avg Order Value], [Measures].[Freight %], [Measures].[Total Revenue], [Measures].[Late Orders %] } ON COLUMNS, NON EMPTY { ([Dim Customers].[State].[State].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS 
-FROM [Sales Cube] 
-WHERE (STRTOSET(@Year, CONSTRAINED), STRTOSET(@Month, CONSTRAINED))
+        <CommandText>SELECT NON EMPTY { [Measures].[Total Items Sold], [Measures].[No Orders], [Measures].[Freight %], [Measures].[Total Seller Revenue] } ON COLUMNS, NON EMPTY { ([Dim Sellers].[Seller Full Name].[Seller Full Name].ALLMEMBERS * [Dim Sellers].[Gender].[Gender].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS 
+FROM [Sales Cube]
+WHERE (STRTOSET(@State, CONSTRAINED))
 CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
         <rd:DesignerState>
           <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
@@ -46,21 +42,48 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                 <Items>
                   <Item>
                     <ID xsi:type="Level">
-                      <DimensionName>Dim Customers</DimensionName>
-                      <HierarchyName>State</HierarchyName>
-                      <HierarchyUniqueName>[Dim Customers].[State]</HierarchyUniqueName>
-                      <LevelName>State</LevelName>
-                      <UniqueName>[Dim Customers].[State].[State]</UniqueName>
+                      <DimensionName>Dim Sellers</DimensionName>
+                      <HierarchyName>Seller Full Name</HierarchyName>
+                      <HierarchyUniqueName>[Dim Sellers].[Seller Full Name]</HierarchyUniqueName>
+                      <LevelName>Seller Full Name</LevelName>
+                      <UniqueName>[Dim Sellers].[Seller Full Name].[Seller Full Name]</UniqueName>
                     </ID>
-                    <ItemCaption>State</ItemCaption>
+                    <ItemCaption>Seller Full Name</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Dim Sellers</DimensionName>
+                      <HierarchyName>Gender</HierarchyName>
+                      <HierarchyUniqueName>[Dim Sellers].[Gender]</HierarchyUniqueName>
+                      <LevelName>Gender</LevelName>
+                      <UniqueName>[Dim Sellers].[Gender].[Gender]</UniqueName>
+                    </ID>
+                    <ItemCaption>Gender</ItemCaption>
                     <UniqueName>true</UniqueName>
                   </Item>
                   <Item>
                     <ID xsi:type="Measure">
-                      <MeasureName>Avg Order Value</MeasureName>
-                      <UniqueName>[Measures].[Avg Order Value]</UniqueName>
+                      <MeasureName>Total Items Sold</MeasureName>
+                      <UniqueName>[Measures].[Total Items Sold]</UniqueName>
                     </ID>
-                    <ItemCaption>Avg Order Value</ItemCaption>
+                    <ItemCaption>Total Items Sold</ItemCaption>
+                    <BackColor>true</BackColor>
+                    <ForeColor>true</ForeColor>
+                    <FontFamily>true</FontFamily>
+                    <FontSize>true</FontSize>
+                    <FontWeight>true</FontWeight>
+                    <FontStyle>true</FontStyle>
+                    <FontDecoration>true</FontDecoration>
+                    <FormattedValue>true</FormattedValue>
+                    <FormatString>true</FormatString>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>No Orders</MeasureName>
+                      <UniqueName>[Measures].[No Orders]</UniqueName>
+                    </ID>
+                    <ItemCaption>No Orders</ItemCaption>
                     <BackColor>true</BackColor>
                     <ForeColor>true</ForeColor>
                     <FontFamily>true</FontFamily>
@@ -89,26 +112,10 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                   </Item>
                   <Item>
                     <ID xsi:type="Measure">
-                      <MeasureName>Total Revenue</MeasureName>
-                      <UniqueName>[Measures].[Total Revenue]</UniqueName>
+                      <MeasureName>Total Seller Revenue</MeasureName>
+                      <UniqueName>[Measures].[Total Seller Revenue]</UniqueName>
                     </ID>
-                    <ItemCaption>Total Revenue</ItemCaption>
-                    <BackColor>true</BackColor>
-                    <ForeColor>true</ForeColor>
-                    <FontFamily>true</FontFamily>
-                    <FontSize>true</FontSize>
-                    <FontWeight>true</FontWeight>
-                    <FontStyle>true</FontStyle>
-                    <FontDecoration>true</FontDecoration>
-                    <FormattedValue>true</FormattedValue>
-                    <FormatString>true</FormatString>
-                  </Item>
-                  <Item>
-                    <ID xsi:type="Measure">
-                      <MeasureName>Late Orders %</MeasureName>
-                      <UniqueName>[Measures].[Late Orders %]</UniqueName>
-                    </ID>
-                    <ItemCaption>Late Orders %</ItemCaption>
+                    <ItemCaption>Total Seller Revenue</ItemCaption>
                     <BackColor>true</BackColor>
                     <ForeColor>true</ForeColor>
                     <FontFamily>true</FontFamily>
@@ -133,7 +140,91 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </QueryProperties>
             </QuerySpecification>
             <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Avg Order Value], [Measures].[Freight %], [Measures].[Total Revenue], [Measures].[Late Orders %] } ON COLUMNS, NON EMPTY { ([Dim Customers].[State].[State].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+              <Statement> SELECT NON EMPTY { [Measures].[Total Items Sold], [Measures].[No Orders], [Measures].[Freight %], [Measures].[Total Seller Revenue] } ON COLUMNS, NON EMPTY { ([Dim Sellers].[Seller Full Name].[Seller Full Name].ALLMEMBERS * [Dim Sellers].[Gender].[Gender].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+              <ParameterDefinitions />
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Seller_Full_Name">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Sellers].[Seller Full Name].[Seller Full Name]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Gender">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Sellers].[Gender].[Gender]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Total_Items_Sold">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Total Items Sold]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="No_Orders">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[No Orders]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Freight__">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Freight %]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Total_Seller_Revenue">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Total Seller Revenue]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="state_lst">
+      <Query>
+        <DataSourceName>Olist_DS</DataSourceName>
+        <CommandText> SELECT NON EMPTY { [Measures].[Item Freight] } ON COLUMNS, NON EMPTY { ([Dim Sellers].[State].[State].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <QuerySpecification xsi:type="MDXQuerySpecification">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Dim Sellers</DimensionName>
+                      <HierarchyName>State</HierarchyName>
+                      <HierarchyUniqueName>[Dim Sellers].[State]</HierarchyUniqueName>
+                      <LevelName>State</LevelName>
+                      <UniqueName>[Dim Sellers].[State].[State]</UniqueName>
+                    </ID>
+                    <ItemCaption>State</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Item Freight</MeasureName>
+                      <UniqueName>[Measures].[Item Freight]</UniqueName>
+                    </ID>
+                    <ItemCaption>Item Freight</ItemCaption>
+                    <BackColor>true</BackColor>
+                    <ForeColor>true</ForeColor>
+                    <FontFamily>true</FontFamily>
+                    <FontSize>true</FontSize>
+                    <FontWeight>true</FontWeight>
+                    <FontStyle>true</FontStyle>
+                    <FontDecoration>true</FontDecoration>
+                    <FormattedValue>true</FormattedValue>
+                    <FormatString>true</FormatString>
+                  </Item>
+                </Items>
+              </Select>
+              <AutoExecute>false</AutoExecute>
+              <From>Sales Cube</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties>
+                <IncludeMemberValue>true</IncludeMemberValue>
+              </QueryProperties>
+            </QuerySpecification>
+            <Query>
+              <Statement> SELECT NON EMPTY { [Measures].[Item Freight] } ON COLUMNS, NON EMPTY { ([Dim Sellers].[State].[State].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
               <ParameterDefinitions />
             </Query>
           </QueryDefinition>
@@ -141,168 +232,11 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
       </Query>
       <Fields>
         <Field Name="State">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Customers].[State].[State]" /&gt;</DataField>
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Sellers].[State].[State]" /&gt;</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Avg_Order_Value">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Avg Order Value]" /&gt;</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Freight__">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Freight %]" /&gt;</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Total_Revenue">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Total Revenue]" /&gt;</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Late_Orders__">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Late Orders %]" /&gt;</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="year_lst">
-      <Query>
-        <DataSourceName>Olist_DS</DataSourceName>
-        <CommandText> SELECT NON EMPTY { [Measures].[Orders Count] } ON COLUMNS, NON EMPTY { ([Dim Date].[Year].[Year].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
-        <rd:DesignerState>
-          <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
-            <CommandType>MDX</CommandType>
-            <QuerySpecification xsi:type="MDXQuerySpecification">
-              <Select>
-                <Items>
-                  <Item>
-                    <ID xsi:type="Level">
-                      <DimensionName>Dim Date</DimensionName>
-                      <HierarchyName>Year</HierarchyName>
-                      <HierarchyUniqueName>[Dim Date].[Year]</HierarchyUniqueName>
-                      <LevelName>Year</LevelName>
-                      <UniqueName>[Dim Date].[Year].[Year]</UniqueName>
-                    </ID>
-                    <ItemCaption>Year</ItemCaption>
-                    <UniqueName>true</UniqueName>
-                  </Item>
-                  <Item>
-                    <ID xsi:type="Measure">
-                      <MeasureName>Orders Count</MeasureName>
-                      <UniqueName>[Measures].[Orders Count]</UniqueName>
-                    </ID>
-                    <ItemCaption>Orders Count</ItemCaption>
-                    <BackColor>true</BackColor>
-                    <ForeColor>true</ForeColor>
-                    <FontFamily>true</FontFamily>
-                    <FontSize>true</FontSize>
-                    <FontWeight>true</FontWeight>
-                    <FontStyle>true</FontStyle>
-                    <FontDecoration>true</FontDecoration>
-                    <FormattedValue>true</FormattedValue>
-                    <FormatString>true</FormatString>
-                  </Item>
-                </Items>
-              </Select>
-              <AutoExecute>false</AutoExecute>
-              <From>Sales Cube</From>
-              <Filter>
-                <FilterItems />
-              </Filter>
-              <Calculations />
-              <Aggregates />
-              <QueryProperties>
-                <IncludeMemberValue>true</IncludeMemberValue>
-              </QueryProperties>
-            </QuerySpecification>
-            <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Orders Count] } ON COLUMNS, NON EMPTY { ([Dim Date].[Year].[Year].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
-              <ParameterDefinitions />
-            </Query>
-          </QueryDefinition>
-        </rd:DesignerState>
-      </Query>
-      <Fields>
-        <Field Name="Year">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Date].[Year].[Year]" /&gt;</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Orders_Count">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Orders Count]" /&gt;</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="month_lst">
-      <Query>
-        <DataSourceName>Olist_DS</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="Year">
-            <Value>="{" &amp; "[Dim Date].[Year].[Year].[" &amp; Join(Parameters!Year.Value, "],[Dim Date].[Year].[Year].[") &amp; "]}"</Value>
-            <rd:UserDefined>true</rd:UserDefined>
-          </QueryParameter>
-        </QueryParameters>
-        <CommandText>SELECT NON EMPTY { [Measures].[Orders Count] } ON COLUMNS, NON EMPTY { ([Dim Date].[Month Name].[Month Name].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS 
-FROM [Sales Cube]
-WHERE (STRTOSET(@Year, CONSTRAINED))
-CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
-        <rd:DesignerState>
-          <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
-            <CommandType>MDX</CommandType>
-            <QuerySpecification xsi:type="MDXQuerySpecification">
-              <Select>
-                <Items>
-                  <Item>
-                    <ID xsi:type="Level">
-                      <DimensionName>Dim Date</DimensionName>
-                      <HierarchyName>Month Name</HierarchyName>
-                      <HierarchyUniqueName>[Dim Date].[Month Name]</HierarchyUniqueName>
-                      <LevelName>Month Name</LevelName>
-                      <UniqueName>[Dim Date].[Month Name].[Month Name]</UniqueName>
-                    </ID>
-                    <ItemCaption>Month Name</ItemCaption>
-                    <UniqueName>true</UniqueName>
-                  </Item>
-                  <Item>
-                    <ID xsi:type="Measure">
-                      <MeasureName>Orders Count</MeasureName>
-                      <UniqueName>[Measures].[Orders Count]</UniqueName>
-                    </ID>
-                    <ItemCaption>Orders Count</ItemCaption>
-                    <BackColor>true</BackColor>
-                    <ForeColor>true</ForeColor>
-                    <FontFamily>true</FontFamily>
-                    <FontSize>true</FontSize>
-                    <FontWeight>true</FontWeight>
-                    <FontStyle>true</FontStyle>
-                    <FontDecoration>true</FontDecoration>
-                    <FormattedValue>true</FormattedValue>
-                    <FormatString>true</FormatString>
-                  </Item>
-                </Items>
-              </Select>
-              <AutoExecute>false</AutoExecute>
-              <From>Sales Cube</From>
-              <Filter>
-                <FilterItems />
-              </Filter>
-              <Calculations />
-              <Aggregates />
-              <QueryProperties>
-                <IncludeMemberValue>true</IncludeMemberValue>
-              </QueryProperties>
-            </QuerySpecification>
-            <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Orders Count] } ON COLUMNS, NON EMPTY { ([Dim Date].[Month Name].[Month Name].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Sales Cube] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
-              <ParameterDefinitions />
-            </Query>
-          </QueryDefinition>
-        </rd:DesignerState>
-      </Query>
-      <Fields>
-        <Field Name="Month_Name">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Date].[Month Name].[Month Name]" /&gt;</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Orders_Count">
-          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Orders Count]" /&gt;</DataField>
+        <Field Name="Item_Freight">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Item Freight]" /&gt;</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
@@ -316,24 +250,27 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.24376in</Width>
+                  <Width>1.58334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.07292in</Width>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7493in</Width>
+                  <Width>2.03125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.16667in</Width>
+                  <Width>1.32292in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.35417in</Width>
+                  <Width>1.28819in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.02431in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.35542in</Height>
+                  <Height>0.31375in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -344,7 +281,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>State</Value>
+                                  <Value>Name</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -380,15 +317,12 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                       <CellContents>
                         <Textbox Name="textbox3">
                           <CanGrow>true</CanGrow>
-                          <UserSort>
-                            <SortExpression>=Fields!Avg_Order_Value.Value</SortExpression>
-                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Avg Order Value</Value>
+                                  <Value>Gender</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -398,7 +332,6 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <FontFamily />
                                 <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
@@ -426,14 +359,14 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         <Textbox Name="textbox4">
                           <CanGrow>true</CanGrow>
                           <UserSort>
-                            <SortExpression>=Fields!Freight__.Value</SortExpression>
+                            <SortExpression>=Fields!Total_Items_Sold.Value</SortExpression>
                           </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Freight % </Value>
+                                  <Value>Total Items Sold</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -471,14 +404,14 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         <Textbox Name="textbox5">
                           <CanGrow>true</CanGrow>
                           <UserSort>
-                            <SortExpression>=Fields!Total_Revenue.Value</SortExpression>
+                            <SortExpression>=Fields!No_Orders.Value</SortExpression>
                           </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total Revenue</Value>
+                                  <Value>No Orders</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -516,18 +449,19 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         <Textbox Name="textbox6">
                           <CanGrow>true</CanGrow>
                           <UserSort>
-                            <SortExpression>=Fields!Late_Orders__.Value</SortExpression>
+                            <SortExpression>=Fields!Freight__.Value</SortExpression>
                           </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Late Orders % </Value>
+                                  <Value>Freight %</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>0.00%</Format>
                                     <Color>White</Color>
                                   </Style>
                                 </TextRun>
@@ -556,21 +490,67 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox7">
+                          <CanGrow>true</CanGrow>
+                          <UserSort>
+                            <SortExpression>=Fields!Total_Seller_Revenue.Value</SortExpression>
+                          </UserSort>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Total Seller Revenue</Value>
+                                  <Style>
+                                    <FontFamily>open Sans</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>'BRL'#,0;('BRL'#,0)</Format>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily />
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>#2f4157</BackgroundColor>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.335in</Height>
+                  <Height>0.36625in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="State">
+                        <Textbox Name="Seller_Full_Name">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!State.Value</Value>
+                                  <Value>=Fields!Seller_Full_Name.Value</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -583,7 +563,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>State</rd:DefaultName>
+                          <rd:DefaultName>Seller_Full_Name</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -603,18 +583,17 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Avg_Order_Value">
+                        <Textbox Name="Gender">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Avg_Order_Value.Value</Value>
+                                  <Value>=Fields!Gender.Value</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
-                                    <Format>0.00;(0.00)</Format>
                                     <Color>#2f4157</Color>
                                   </Style>
                                 </TextRun>
@@ -624,7 +603,87 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Avg_Order_Value</rd:DefaultName>
+                          <rd:DefaultName>Gender</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=IIF(RowNumber(Nothing) mod 2 = 0, "#F4EFEB", "White")</BackgroundColor>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Total_Items_Sold">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Total_Items_Sold.Value</Value>
+                                  <Style>
+                                    <FontFamily>open Sans</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#2f4157</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Total_Items_Sold</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=IIF(RowNumber(Nothing) mod 2 = 0, "#F4EFEB", "White")</BackgroundColor>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="No_Orders">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!No_Orders.Value</Value>
+                                  <Style>
+                                    <FontFamily>open Sans</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <Color>#2f4157</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>No_Orders</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -685,18 +744,18 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Total_Revenue">
+                        <Textbox Name="Total_Seller_Revenue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Total_Revenue.Value</Value>
+                                  <Value>=Fields!Total_Seller_Revenue.Value</Value>
                                   <Style>
                                     <FontFamily>open Sans</FontFamily>
                                     <FontSize>12pt</FontSize>
-                                    <Format>'BRL'#,0.00;('BRL'#,0.00)</Format>
+                                    <Format>'BRL'#,0;('BRL'#,0)</Format>
                                     <Color>#2f4157</Color>
                                   </Style>
                                 </TextRun>
@@ -706,48 +765,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Total_Revenue</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <BackgroundColor>=IIF(RowNumber(Nothing) mod 2 = 0, "#F4EFEB", "White")</BackgroundColor>
-                            <FontFamily />
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Late_Orders__">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Late_Orders__.Value</Value>
-                                  <Style>
-                                    <FontFamily>open Sans</FontFamily>
-                                    <FontSize>12pt</FontSize>
-                                    <Format>0.00%</Format>
-                                    <Color>#2f4157</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Late_Orders__</rd:DefaultName>
+                          <rd:DefaultName>Total_Seller_Revenue</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -776,6 +794,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -798,23 +817,23 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>state_data</DataSetName>
-            <Top>1.27375in</Top>
-            <Left>0.72882in</Left>
-            <Height>0.69042in</Height>
-            <Width>9.58681in</Width>
+            <DataSetName>seller_data</DataSetName>
+            <Top>1.22167in</Top>
+            <Left>0.5in</Left>
+            <Height>0.68in</Height>
+            <Width>9.25001in</Width>
             <Style />
           </Tablix>
           <Rectangle Name="Rectangle2">
             <ReportItems>
-              <Textbox Name="textbox7">
+              <Textbox Name="textbox8">
                 <CanGrow>true</CanGrow>
                 <KeepTogether>true</KeepTogether>
                 <Paragraphs>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Sales Performance by State</Value>
+                        <Value>Seller Performance</Value>
                         <Style>
                           <FontFamily>open Sans</FontFamily>
                           <FontSize>24pt</FontSize>
@@ -829,7 +848,6 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>textbox1</rd:DefaultName>
-                <Top>0.01167in</Top>
                 <Left>1.08681in</Left>
                 <Height>0.51958in</Height>
                 <Width>5.59652in</Width>
@@ -879,7 +897,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                 </Paragraphs>
                 <rd:DefaultName>Textbox8</rd:DefaultName>
                 <Top>0.68625in</Top>
-                <Left>6.78764in</Left>
+                <Left>6.45084in</Left>
                 <Height>0.35417in</Height>
                 <Width>2.79917in</Width>
                 <ZIndex>2</ZIndex>
@@ -900,7 +918,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="Selected Years: "</Value>
+                        <Value>="Selected States: "</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -909,7 +927,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!Year.Count = 0, "None", Join(Parameters!Year.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!State.Count = 0, "None", Join(Parameters!State.Label, ", "))</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -922,19 +940,11 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="Selected Months: "</Value>
+                        <Value />
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
-                          <FontSize>11pt</FontSize>
+                          <FontSize>12pt</FontSize>
                           <FontWeight>Bold</FontWeight>
-                          <Color>#2f4157</Color>
-                        </Style>
-                      </TextRun>
-                      <TextRun>
-                        <Value>=IIF(Parameters!Month.Count = 0, "None", Join(Parameters!Month.Label, ", "))</Value>
-                        <Style>
-                          <FontFamily>Open Sans</FontFamily>
-                          <FontSize>11pt</FontSize>
                           <Color>#2f4157</Color>
                         </Style>
                       </TextRun>
@@ -943,10 +953,10 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox11</rd:DefaultName>
-                <Top>0.53125in</Top>
+                <Top>0.54736in</Top>
                 <Left>1.11459in</Left>
-                <Height>0.50917in</Height>
-                <Width>5.56874in</Width>
+                <Height>0.49306in</Height>
+                <Width>5.32236in</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -960,9 +970,9 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>0.72882in</Left>
+            <Left>0.5in</Left>
             <Height>1.04042in</Height>
-            <Width>9.58681in</Width>
+            <Width>9.25001in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -972,10 +982,10 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>4.62042in</Height>
+        <Height>3.88083in</Height>
         <Style />
       </Body>
-      <Width>12.19688in</Width>
+      <Width>10.04167in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -986,26 +996,14 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="Year">
+    <ReportParameter Name="State">
       <DataType>String</DataType>
-      <Prompt>Select a Year</Prompt>
+      <Prompt>Select a State</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>year_lst</DataSetName>
-          <ValueField>Year</ValueField>
-          <LabelField>Year</LabelField>
-        </DataSetReference>
-      </ValidValues>
-      <MultiValue>true</MultiValue>
-    </ReportParameter>
-    <ReportParameter Name="Month">
-      <DataType>String</DataType>
-      <Prompt>Select a Month</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>month_lst</DataSetName>
-          <ValueField>Month_Name</ValueField>
-          <LabelField>Month_Name</LabelField>
+          <DataSetName>state_lst</DataSetName>
+          <ValueField>State</ValueField>
+          <LabelField>State</LabelField>
         </DataSetReference>
       </ValidValues>
       <MultiValue>true</MultiValue>
@@ -1019,12 +1017,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>Year</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>Month</ParameterName>
+          <ParameterName>State</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -1615,5 +1608,5 @@ QIAAAQIECBAgQGBNwPMYAQFAjLMuBAgQIECAAAECBAgQILAs4GmQgAAgCFobAgQIECBAgAABAgQIEFgS
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>3c05d93a-b9c3-4add-bc90-8df9c571bef9</rd:ReportID>
+  <rd:ReportID>666e5240-cbd4-4083-b799-115628dfc756</rd:ReportID>
 </Report>
