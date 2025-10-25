@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="7_fact_sales"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{C992795A-C941-48D0-9B8B-1EC5829AE5C2}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{C0E22D99-9134-461D-862E-0F0F03EBC862}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1451,16 +1451,16 @@ ON i.order_id = o.order_id</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132,42"
+          Size="140,42"
           Id="Package\Clear Table"
-          TopLeft="221.5,71" />
+          TopLeft="213.5,71" />
         <NodeLayout
-          Size="152,42"
+          Size="177,42"
           Id="Package\Load Fact Sales"
-          TopLeft="211,147.5" />
+          TopLeft="200,147.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="287.25,113">
+          TopLeft="286,113">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1489,32 +1489,32 @@ ON i.order_id = o.order_id</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="150,42"
+          Size="163,42"
           Id="Package\Load Fact Sales\OLE DB Source"
           TopLeft="259.5,40.5" />
         <NodeLayout
-          Size="179,42"
+          Size="192,42"
           Id="Package\Load Fact Sales\get Order_Details_FK"
           TopLeft="241.5,392.5" />
         <NodeLayout
-          Size="141,42"
+          Size="159,42"
           Id="Package\Load Fact Sales\get Seller_FK"
           TopLeft="263.5,111.5" />
         <NodeLayout
-          Size="160,42"
+          Size="165,42"
           Id="Package\Load Fact Sales\get Customer_FK"
           TopLeft="252.5,286.5" />
         <NodeLayout
-          Size="151,42"
+          Size="165,42"
           Id="Package\Load Fact Sales\get Product_FK"
           TopLeft="254.5,200.5" />
         <NodeLayout
-          Size="171,42"
+          Size="191,42"
           Id="Package\Load Fact Sales\OLE DB Destination"
-          TopLeft="251.5,488.5" />
+          TopLeft="240.5,488.5" />
         <EdgeLayout
           Id="Package\Load Fact Sales.Paths[OLE DB Source Output]"
-          TopLeft="334.25,82.5">
+          TopLeft="342,82.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1536,7 +1536,7 @@ ON i.order_id = o.order_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Fact Sales.Paths[Lookup Match Output3]"
-          TopLeft="334,434.5">
+          TopLeft="336.75,434.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1560,7 +1560,7 @@ ON i.order_id = o.order_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Fact Sales.Paths[Lookup Match Output2]"
-          TopLeft="331.75,328.5">
+          TopLeft="336.25,328.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1584,7 +1584,7 @@ ON i.order_id = o.order_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Fact Sales.Paths[Lookup Match Output1]"
-          TopLeft="331.25,242.5">
+          TopLeft="336,242.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1608,7 +1608,7 @@ ON i.order_id = o.order_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Fact Sales.Paths[Lookup Match Output]"
-          TopLeft="332,153.5">
+          TopLeft="340,153.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

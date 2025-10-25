@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>18.0.11116.177</am:Version>
+      <am:Version>17.14.36616.10</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T23:27:26.9364286Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-24T23:27:19.6603476Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -24,12 +24,19 @@
     <DataSet Name="Marketing">
       <Query>
         <DataSourceName>Olist_DS</DataSourceName>
-        <CommandText>SELECT NON EMPTY { [Measures].[Closed Deals Count], [Measures].[% Leads (Origin)], [Measures].[Conversion Rate], [Measures].[Avg Deal Close Time] } ON COLUMNS, NON EMPTY { ([Dim Leads].[Origin].[Origin].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Marketing] 
-
+        <CommandText>SELECT NON EMPTY { [Measures].[Closed Deals Count], [Measures].[% Leads (Origin)], [Measures].[Conversion Rate], [Measures].[Avg Deal Close Time] } ON COLUMNS, 
+NON EMPTY { 
+    EXCEPT(
+        [Dim Leads].[Origin].[Origin].ALLMEMBERS, 
+        { [Dim Leads].[Origin].[Origin].[N/A] }
+    ) 
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS 
+FROM [Marketing]
 CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
         <rd:DesignerState>
           <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
             <CommandType>MDX</CommandType>
+            <Type>Query</Type>
             <QuerySpecification xsi:type="MDXQuerySpecification">
               <Select>
                 <Items>
@@ -43,6 +50,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                     </ID>
                     <ItemCaption>Origin</ItemCaption>
                     <UniqueName>true</UniqueName>
+                    <MemberValue>true</MemberValue>
                   </Item>
                   <Item>
                     <ID xsi:type="Measure">
@@ -117,12 +125,18 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Filter>
               <Calculations />
               <Aggregates />
-              <QueryProperties>
-                <IncludeMemberValue>true</IncludeMemberValue>
-              </QueryProperties>
+              <QueryProperties />
             </QuerySpecification>
             <Query>
-              <Statement> SELECT NON EMPTY { [Measures].[Closed Deals Count], [Measures].[% Leads (Origin)], [Measures].[Conversion Rate], [Measures].[Avg Deal Close Time] } ON COLUMNS, NON EMPTY { ([Dim Leads].[Origin].[Origin].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [Marketing] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+              <Statement>SELECT NON EMPTY { [Measures].[Closed Deals Count], [Measures].[% Leads (Origin)], [Measures].[Conversion Rate], [Measures].[Avg Deal Close Time] } ON COLUMNS, 
+NON EMPTY { 
+    EXCEPT(
+        [Dim Leads].[Origin].[Origin].ALLMEMBERS, 
+        { [Dim Leads].[Origin].[Origin].[N/A] }
+    ) 
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS 
+FROM [Marketing]
+CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
               <ParameterDefinitions />
             </Query>
           </QueryDefinition>
@@ -417,7 +431,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>0.39931in</Left>
+            <Left>0.14236in</Left>
             <Height>1in</Height>
             <Width>10.75278in</Width>
             <Style>
@@ -1308,7 +1322,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </TablixRowHierarchy>
             <DataSetName>Marketing</DataSetName>
             <Top>1.19375in</Top>
-            <Left>0.38542in</Left>
+            <Left>0.12847in</Left>
             <Height>0.43in</Height>
             <Width>10.76666in</Width>
             <ZIndex>1</ZIndex>
@@ -1654,7 +1668,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </ChartNoDataMessage>
             <DataSetName>Business_Type</DataSetName>
             <Top>1.66542in</Top>
-            <Left>0.38542in</Left>
+            <Left>0.12847in</Left>
             <Height>3.51042in</Height>
             <Width>5.15625in</Width>
             <ZIndex>2</ZIndex>
@@ -2004,7 +2018,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </ChartNoDataMessage>
             <DataSetName>Lead_Type</DataSetName>
             <Top>1.66542in</Top>
-            <Left>5.73542in</Left>
+            <Left>5.47847in</Left>
             <Height>3.51042in</Height>
             <Width>5.41667in</Width>
             <ZIndex>3</ZIndex>
@@ -2018,10 +2032,10 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </Style>
           </Chart>
         </ReportItems>
-        <Height>5.45708in</Height>
+        <Height>5.49209in</Height>
         <Style />
       </Body>
-      <Width>13.3425in</Width>
+      <Width>13.35639in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="1_dim_sellers_and_customers"
   DTS:PackageType="5"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{7CFC84A3-AD80-4467-9F7A-97F078B0AF32}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{1D6475AD-8264-488A-8667-70ADDDCED315}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3171,19 +3171,19 @@ where [refTable].[customer_id] = ?</property>
               startId="Package\Load dim_customer and dim_seller\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
             <path
               refId="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output1]"
+              endId="Package\Load dim_customer and dim_seller\Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load dim_customer and dim_seller\Get cust_geo_key.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output2]"
               endId="Package\Load dim_customer and dim_seller\Conditional Split.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Load dim_customer and dim_seller\Lookup.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output2]"
+              refId="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output]"
               endId="Package\Load dim_customer and dim_seller\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Lookup Match Output"
               startId="Package\Load dim_customer and dim_seller\Get seller_geo_key.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output]"
-              endId="Package\Load dim_customer and dim_seller\Lookup.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load dim_customer and dim_seller\Get cust_geo_key.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load dim_customer and dim_seller.Paths[New]"
               endId="Package\Load dim_customer and dim_seller\Union All.Inputs[Union All Input 3]"
@@ -3782,35 +3782,35 @@ where [refTable].[customer_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="167,42"
+          Size="188,42"
           Id="Package\Clear Stage Tables"
-          TopLeft="276.5,84.5" />
+          TopLeft="268.5,54.5" />
         <NodeLayout
-          Size="163,42"
+          Size="189,42"
           Id="Package\Execute SQL Task"
-          TopLeft="267.5,350.5" />
+          TopLeft="271.5,360.5" />
         <NodeLayout
-          Size="243,42"
+          Size="275,42"
           Id="Package\Load dim_customer and dim_seller"
-          TopLeft="231.5,264.5" />
+          TopLeft="226.5,258.5" />
         <NodeLayout
-          Size="182,42"
+          Size="203,42"
           Id="Package\Load dim_geolocation"
-          TopLeft="262.5,182.5" />
+          TopLeft="256.5,156.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="356.75,126.5">
+          TopLeft="360.25,96.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,48.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3821,18 +3821,18 @@ where [refTable].[customer_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="353.25,224.5">
+          TopLeft="361,198.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,32.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3843,18 +3843,18 @@ where [refTable].[customer_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="351,306.5">
+          TopLeft="365,300.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,36.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4177,7 +4177,7 @@ where [refTable].[customer_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="3.0752799479167,148.434650455927,54.1827734375,11.43359375"
+              BoundingBox="3.07527994791668,148.434650455927,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4206,7 +4206,31 @@ where [refTable].[customer_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output1]"
+          Id="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output]"
+          TopLeft="905,266.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output2]"
           TopLeft="304,364.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4230,7 +4254,7 @@ where [refTable].[customer_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output]"
+          Id="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output1]"
           TopLeft="304,262.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4243,30 +4267,6 @@ where [refTable].[customer_id] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load dim_customer and dim_seller.Paths[Lookup Match Output2]"
-          TopLeft="905,266.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4661,27 +4661,31 @@ where [refTable].[customer_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="133,42"
+          Size="160,42"
           Id="Package\Load dim_geolocation\geolocation"
-          TopLeft="343.5,80.5" />
+          TopLeft="344.5,83.5" />
         <NodeLayout
-          Size="209,42"
+          Size="239,42"
           Id="Package\Load dim_geolocation\Slowly Changing Dimension"
           TopLeft="305.5,182.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Load dim_geolocation\dim_geolocation"
+          TopLeft="334.5,284.5" />
         <EdgeLayout
           Id="Package\Load dim_geolocation.Paths[OLE DB Source Output]"
-          TopLeft="410,122.5">
+          TopLeft="424.75,125.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,57"
               Start="0,0"
-              End="0,52.5">
+              End="0,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4690,13 +4694,9 @@ where [refTable].[customer_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Load dim_geolocation\dim_geolocation"
-          TopLeft="328.5,284.5" />
         <EdgeLayout
           Id="Package\Load dim_geolocation.Paths[New Output]"
-          TopLeft="408.25,224.5">
+          TopLeft="424.75,224.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

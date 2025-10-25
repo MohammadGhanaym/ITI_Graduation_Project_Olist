@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>18.0.11116.177</am:Version>
+      <am:Version>17.14.36616.10</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T23:36:15.3039999Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-24T20:56:33.6236043Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -2124,7 +2124,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </TablixRowHierarchy>
             <DataSetName>sales_delivery_data</DataSetName>
             <Top>1.26333in</Top>
-            <Left>0.36458in</Left>
+            <Left>0.15625in</Left>
             <Height>1.44542in</Height>
             <Width>12.95138in</Width>
             <Style />
@@ -2472,7 +2472,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </ChartNoDataMessage>
             <DataSetName>sales_over_month</DataSetName>
             <Top>2.88417in</Top>
-            <Left>0.36458in</Left>
+            <Left>0.15625in</Left>
             <Height>3.23958in</Height>
             <Width>12.95139in</Width>
             <ZIndex>1</ZIndex>
@@ -2588,7 +2588,12 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!State.Count = 0, "None", Join(Parameters!State.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!State.Count = 0, "None", 
+	IIF(Parameters!State.Count = CountRows("state_lst"), 
+		"All",
+		Join(Parameters!State.Label, ", ")
+		)
+	)</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -2631,7 +2636,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>0.36458in</Left>
+            <Left>0.15625in</Left>
             <Height>1.04042in</Height>
             <Width>12.95139in</Width>
             <ZIndex>2</ZIndex>
@@ -2643,10 +2648,10 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>6.12375in</Height>
+        <Height>6.26264in</Height>
         <Style />
       </Body>
-      <Width>13.56598in</Width>
+      <Width>13.57305in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

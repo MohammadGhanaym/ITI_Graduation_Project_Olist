@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="8_fact_payment"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{1A10E993-367E-4FB0-BF13-9EE5A9BFD642}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{B8EB706F-AE6F-440E-8C14-DAEE9858BAEE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1719,27 +1719,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132,42"
+          Size="143,42"
           Id="Package\Clear Table"
-          TopLeft="257.5,107" />
+          TopLeft="270.5,105" />
         <NodeLayout
-          Size="195,42"
+          Size="214,42"
           Id="Package\Load fact_payment_type"
           TopLeft="231,183.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="326,149">
+          TopLeft="340,147">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.5"
+              EndConnector="0,36.5"
               Start="0,0"
-              End="0,27">
+              End="0,29">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27" />
+                    End="0,29" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1757,24 +1757,50 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="173,42"
-          Id="Package\Load fact_payment_type\get order_details_fk"
-          TopLeft="281.5,282.5" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Load fact_payment_type\fact_payment_type"
-          TopLeft="283.5,408.5" />
-        <NodeLayout
-          Size="150,42"
+          Size="165,42"
           Id="Package\Load fact_payment_type\OLE DB Source"
           TopLeft="287.5,26.5" />
         <NodeLayout
-          Size="179,42"
+          Size="174,42"
+          Id="Package\Load fact_payment_type\Script Component"
+          TopLeft="287.5,102.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Load fact_payment_type\get order_details_fk"
+          TopLeft="281.5,282.5" />
+        <NodeLayout
+          Size="190,42"
           Id="Package\Load fact_payment_type\get payment_type_fk"
           TopLeft="282.5,181.5" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Load fact_payment_type\fact_payment_type"
+          TopLeft="283.5,408.5" />
+        <EdgeLayout
+          Id="Package\Load fact_payment_type.Paths[OLE DB Source Output]"
+          TopLeft="372.25,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load fact_payment_type.Paths[Lookup Match Output1]"
-          TopLeft="368,324.5">
+          TopLeft="373.75,324.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1798,7 +1824,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load fact_payment_type.Paths[Lookup Match Output]"
-          TopLeft="370,223.5">
+          TopLeft="374.5,223.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1820,35 +1846,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load fact_payment_type\Script Component"
-          TopLeft="287.5,102.5" />
-        <EdgeLayout
-          Id="Package\Load fact_payment_type.Paths[OLE DB Source Output]"
-          TopLeft="365.75,68.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load fact_payment_type.Paths[Output 0]"
-          TopLeft="370.5,144.5">
+          TopLeft="376,144.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1926,7 +1926,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>

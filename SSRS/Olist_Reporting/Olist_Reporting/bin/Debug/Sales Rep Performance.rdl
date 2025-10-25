@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>18.0.11116.177</am:Version>
+      <am:Version>17.14.36616.10</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T23:37:21.8766125Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-24T21:41:50.8947331Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -942,7 +942,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </TablixRowHierarchy>
             <DataSetName>Sales_Rep_Data</DataSetName>
             <Top>1.15334in</Top>
-            <Left>0.68368in</Left>
+            <Left>0.1941in</Left>
             <Height>0.43in</Height>
             <Width>10.75277in</Width>
             <Style>
@@ -1078,7 +1078,11 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!Business_Seg.Count = 0, "None", Join(Parameters!Business_Seg.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!Business_Seg.Count = 0, "None", 
+	IIF(Parameters!Business_Seg.Count = CountRows("Business_Seg_lst"), 
+		"All",
+		Join(Parameters!Business_Seg.Label, ", "))
+)</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -1100,7 +1104,11 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!Lead_Type.Count = 0, "None", Join(Parameters!Lead_Type.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!Lead_Type.Count = 0, "None", 
+	IIF(Parameters!Lead_Type.Count = CountRows("Lead_Type_lst"), 
+		"All",
+		Join(Parameters!Lead_Type.Label, ", "))
+)</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -1129,7 +1137,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>0.68368in</Left>
+            <Left>0.1941in</Left>
             <Height>1.04042in</Height>
             <Width>10.75278in</Width>
             <ZIndex>1</ZIndex>

@@ -14,7 +14,8 @@ CREATE TABLE [dbo].[dim_geolocation](
 	[Geolocation_SK] [int] IDENTITY(1,1) PRIMARY KEY, -- Surrogate Key for the dimension
 	[geo_id] [int] NOT NULL,                          -- Business Key from the source system
 	[city] [nvarchar](255),
-	[state] [nvarchar](255)
+	[state] [nvarchar](255),
+    [state_name] [nvarchar](255)
 )
 
 -- Dimension: Customer
@@ -169,7 +170,7 @@ CREATE TABLE fact_payment (
     Payment_Type_FK INT FOREIGN KEY REFERENCES  dim_payment_type(Payment_SK),
     payment_installments INT,
     payment_value FLOAT,
-    CONSTRAINT PK_order_payment PRIMARY KEY (order_id, payment_sequential)
+    CONSTRAINT PK_order_payment PRIMARY KEY (Order_Details_FK, payment_sequential)
 )
 
 -- Fact Table: Sales
@@ -202,7 +203,7 @@ CREATE TABLE [fact_sales] (
     item_freight DECIMAL(18, 2),
     
     -- Composite Primary Key to uniquely identify each row
-    PRIMARY KEY (Order_id, Order_item_id)
+    PRIMARY KEY (Order_item_id, Order_Details_FK)
 );
 GO
 
@@ -212,16 +213,15 @@ IF OBJECT_ID('dbo.[fact_marketing_leads]', 'U') IS NOT NULL
     DROP TABLE [fact_marketing_leads]
 CREATE TABLE [fact_marketing_leads] (
     -- Primary Key (using the business key directly as it's unique per event)
-    Mql_id NVARCHAR(255) PRIMARY KEY,
-
+    market_lead_SK INT IDENTITY(1, 1) PRIMARY KEY,
     -- Foreign Keys to Dimensions
     Lead_FK INT FOREIGN KEY REFERENCES [dim_leads](lead_SK),
     Seller_FK INT FOREIGN KEY REFERENCES [dim_sellers](Seller_SK),
     Sdr_Employee_FK INT FOREIGN KEY REFERENCES [dim_sales_rep](Sales_Rep_SK), -- Role-playing dimension
     Sr_Employee_FK INT FOREIGN KEY REFERENCES [dim_sales_rep](Sales_Rep_SK),  -- Role-playing dimension
     Won_Date_FK INT FOREIGN KEY REFERENCES [dim_date](Date_SK),
+    Mql_id NVARCHAR(255),
 	Landing_page_id NVARCHAR(255),
-
     -- Measures
     Lead_to_Win_Days INT,
     lead_closed BIT,

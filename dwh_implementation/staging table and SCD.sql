@@ -1,6 +1,8 @@
 -- ===========================
 -- Staging Tables
 -- ===========================
+-- dim_customers
+
 IF OBJECT_ID('dbo.[dim_customers_stage_update_type1]', 'U') IS NOT NULL
     DROP TABLE [dim_customers_stage_update_type1]
 CREATE TABLE [dbo].[dim_customers_stage_update_type1](
@@ -72,3 +74,27 @@ SELECT
 FROM dbo.dim_customers_stage_update_type2 AS stg;
 
 COMMIT TRANSACTION;
+
+-- ============================
+-- dim_order_details
+-- ============================
+IF OBJECT_ID('dbo.[stg_order_details]', 'U') IS NOT NULL
+    DROP TABLE [stg_order_details]
+CREATE TABLE [dbo].[stg_order_details](
+    [order_id] NVARCHAR(255) NULL,
+    [order_status] NVARCHAR(255) NULL,
+    [review_comment_title] NVARCHAR(500) NULL,
+    [review_comment_message] NVARCHAR(500) NULL
+)
+
+
+-- Update Type1
+UPDATE target_dim
+SET
+    order_status = updates.order_status,
+    review_comment_title = updates.review_comment_title,
+    review_comment_message = updates.review_comment_message
+FROM
+    dim_order_details AS target_dim
+JOIN
+    [stg_order_details] AS updates ON target_dim.order_id = updates.order_id

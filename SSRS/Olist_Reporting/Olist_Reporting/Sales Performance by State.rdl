@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>18.0.11116.177</am:Version>
+      <am:Version>17.14.36616.10</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T23:36:54.0119523Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-24T21:41:15.1844879Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -800,7 +800,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
             </TablixRowHierarchy>
             <DataSetName>state_data</DataSetName>
             <Top>1.27375in</Top>
-            <Left>0.72882in</Left>
+            <Left>0.1795in</Left>
             <Height>0.69042in</Height>
             <Width>9.58682in</Width>
             <Style />
@@ -909,7 +909,9 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!Year.Count = 0, "None", Join(Parameters!Year.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!Year.Count = 0, "None", 
+    IIF(Parameters!Year.Count = CountRows("year_lst"), "All", 
+        Join(Parameters!Year.Label, ", ")))</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -931,7 +933,9 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!Month.Count = 0, "None", Join(Parameters!Month.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!Month.Count = 0, "None", 
+IIF(Parameters!Month.Count = CountRows("month_lst"),"All",
+Join(Parameters!Month.Label, ", ")))</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -960,7 +964,7 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>0.72882in</Left>
+            <Left>0.1795in</Left>
             <Height>1.04042in</Height>
             <Width>9.58681in</Width>
             <ZIndex>1</ZIndex>

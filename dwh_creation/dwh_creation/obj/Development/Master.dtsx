@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-4OLE76B\moham"
   DTS:DTSID="{677B4585-20A4-47DA-8E89-953F96797059}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
   DTS:LocaleID="1033"
   DTS:ObjectName="Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{1F8E258C-2E66-4A7E-8CA9-FA2EA58CC529}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{6DDF279E-59A1-4FF7-AC2F-1055281BF27F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -86,7 +86,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>10_dim_date_time.dtsx</PackageName>
+              <PackageName>Dim_Date_Time.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -103,7 +103,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>6_dim_leads.dtsx</PackageName>
+              <PackageName>Dim_Leads.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -120,7 +120,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>3_order_details.dtsx</PackageName>
+              <PackageName>Dim_Order_Details.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -137,7 +137,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>4_dim_payment_type.dtsx</PackageName>
+              <PackageName>Dim_Payment_Type.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -154,7 +154,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>2_dim_products.dtsx</PackageName>
+              <PackageName>Dim_Products.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -171,7 +171,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>5_dim_sales_rep.dtsx</PackageName>
+              <PackageName>Dim_Sales_Rep.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -188,7 +188,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>1_dim_sellers_and_customers.dtsx</PackageName>
+              <PackageName>Dim_Geolocation_Sellers_Customers.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -259,7 +259,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>9_fact_marketing_leads.dtsx</PackageName>
+              <PackageName>Fact_Marketing_Leads.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -276,7 +276,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>8_fact_payment.dtsx</PackageName>
+              <PackageName>Fact_Payment.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -293,7 +293,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>7_fact_sales.dtsx</PackageName>
+              <PackageName>Fact_Sales.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -339,40 +339,44 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169,42"
+          Size="195,42"
           Id="Package\Disable Constraints"
-          TopLeft="525.5,26.5" />
+          TopLeft="514.5,26.5" />
         <NodeLayout
-          Size="216,42"
-          Id="Package\Sequence Container\sellers_and_cust_geolocation"
-          TopLeft="8,10.5" />
+          Size="187,42"
+          Id="Package\Enable Constraints"
+          TopLeft="519.5,633" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Sequence Container\dim_order_details"
-          TopLeft="257,6.5" />
+          Size="154,42"
+          Id="Package\Sequence Container\dim_date_time"
+          TopLeft="39,224.5" />
         <NodeLayout
-          Size="169,42"
-          Id="Package\Sequence Container\dim_payment_type"
-          TopLeft="28,85.5" />
-        <NodeLayout
-          Size="126,42"
+          Size="136,42"
           Id="Package\Sequence Container\dim_leads"
           TopLeft="272,73.5" />
         <NodeLayout
-          Size="143,42"
+          Size="172,42"
+          Id="Package\Sequence Container\dim_order_details"
+          TopLeft="257,6.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Sequence Container\dim_payment_type"
+          TopLeft="30,85.5" />
+        <NodeLayout
+          Size="146,42"
           Id="Package\Sequence Container\dim_products"
           TopLeft="39,152.5" />
         <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container\dim_date_time"
-          TopLeft="36,224.5" />
-        <NodeLayout
-          Size="151,42"
+          Size="158,42"
           Id="Package\Sequence Container\dim_sales_reps"
           TopLeft="259,144.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Sequence Container\sellers_and_cust_geolocation"
+          TopLeft="8,10.5" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="114.25,52.5">
+          TopLeft="121,52.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -394,7 +398,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="111.5,127.5">
+          TopLeft="115,127.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -416,7 +420,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="336.75,48.5">
+          TopLeft="341.5,48.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -438,7 +442,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
-          TopLeft="334.75,115.5">
+          TopLeft="339,115.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -460,7 +464,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
-          TopLeft="110.5,194.5">
+          TopLeft="114,194.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -483,13 +487,32 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="492,284"
-          Size="492,327"
+          PanelSize="492,322"
+          Size="492,365"
           Id="Package\Sequence Container"
           TopLeft="368.5,100.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Sequence Container 1\fact_marketing"
+          TopLeft="426.5,9" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container 1\fact_payment"
+          TopLeft="234.5,9" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Sequence Container 1\fact_sales"
+          TopLeft="72.5,12" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="634,72"
+          Size="634,115"
+          Id="Package\Sequence Container 1"
+          TopLeft="296,493" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="612.25,68.5">
+          TopLeft="613.25,68.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -509,39 +532,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="125,42"
-          Id="Package\Sequence Container 1\fact_sales"
-          TopLeft="86.5,12" />
-        <NodeLayout
-          Size="143,42"
-          Id="Package\Sequence Container 1\fact_payment"
-          TopLeft="234.5,9" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Sequence Container 1\fact_marketing"
-          TopLeft="399.5,9" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="634,80"
-          Size="634,123"
-          Id="Package\Sequence Container 1"
-          TopLeft="296,457" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="613.75,427.5">
+          TopLeft="613.75,465.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.5"
+              EndConnector="0,27.5"
               Start="0,0"
-              End="0,22">
+              End="0,20">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22" />
+                    End="0,20" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -550,24 +554,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Enable Constraints"
-          TopLeft="532.5,611" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="614.25,580">
+          TopLeft="613,608">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31"
+              EndConnector="0,25"
               Start="0,0"
-              End="0,23.5">
+              End="0,17.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5" />
+                    End="0,17.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -7,8 +7,8 @@ IF OBJECT_ID('dbo.[fact_sales]', 'U') IS NOT NULL
 IF OBJECT_ID('dbo.fact_payment', 'U') IS NOT NULL
     DROP TABLE fact_payment
 
-IF OBJECT_ID('dbo.fact_payment', 'U') IS NOT NULL
-    DROP TABLE fact_payment
+IF OBJECT_ID('dbo.dim_leads', 'U') IS NOT NULL
+    DROP TABLE [dim_leads]
 
 IF OBJECT_ID('dbo.dim_sales_rep', 'U') IS NOT NULL
     DROP TABLE dim_sales_rep

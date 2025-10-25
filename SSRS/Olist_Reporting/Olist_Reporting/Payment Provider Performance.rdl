@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>18.0.11116.177</am:Version>
+      <am:Version>17.14.36616.10</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-22T23:36:39.0874260Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-24T21:40:19.2395862Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -767,8 +767,8 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>payment</DataSetName>
-            <Top>1.19097in</Top>
-            <Left>0.82144in</Left>
+            <Top>0.95264in</Top>
+            <Left>0.26256in</Left>
             <Height>0.59667in</Height>
             <Width>8.74639in</Width>
             <Style />
@@ -1107,8 +1107,8 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Style>
             </ChartNoDataMessage>
             <DataSetName>order_status_data</DataSetName>
-            <Top>1.85708in</Top>
-            <Left>0.82145in</Left>
+            <Top>1.61875in</Top>
+            <Left>0.26257in</Left>
             <Height>2.55208in</Height>
             <Width>8.74638in</Width>
             <ZIndex>1</ZIndex>
@@ -1224,7 +1224,12 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=IIF(Parameters!Payment_Type.Count = 0, "None", Join(Parameters!Payment_Type.Label, ", "))</Value>
+                        <Value>=IIF(Parameters!Payment_Type.Count = 0, "None", 
+	IIF(Parameters!Payment_Type.Count = CountRows("payment_type_lst"), 
+		"All",
+		Join(Parameters!Payment_Type.Label, ", ")
+		)
+	)</Value>
                         <Style>
                           <FontFamily>Open Sans</FontFamily>
                           <FontSize>11pt</FontSize>
@@ -1267,7 +1272,8 @@ CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, F
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>0.82144in</Left>
+            <Top>0in</Top>
+            <Left>0.26256in</Left>
             <Height>1.04042in</Height>
             <Width>8.74639in</Width>
             <ZIndex>2</ZIndex>

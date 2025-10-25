@@ -1,10 +1,5 @@
-SELECT
-    Order_id,
-    Customer_FK,
-    order_purchase_date_FK,
-    Order_Details_FK,
-    Time_FK,
 
+SELECT Order_id, Customer_FK, order_purchase_date_FK, Order_Details_FK, Time_FK,
     -- Use MAX() to get the single, non-duplicated value for each order
     MAX(order_payment_approval_time) AS order_payment_approval_time,
     MAX(order_seller_fulfillment_time) AS order_seller_fulfillment_time,
@@ -15,9 +10,4 @@ SELECT
     MAX(order_review_score) AS order_review_score
 FROM
     fact_sales
-GROUP BY
-    Order_id,
-    Customer_FK,
-    order_purchase_date_FK,
-    Order_Details_FK,
-    Time_FK
+GROUP BY Order_id, Customer_FK, order_purchase_date_FK, Order_Details_FK, Time_FK

@@ -72,17 +72,18 @@ LEFT JOIN dim_sales_rep sr
 ON sr.Sales_Rep_SK = fk.Sr_Employee_FK
 LEFT JOIN dim_sellers s
 ON s.seller_sk = fk.seller_fk
-
+WHERE Sales_Rep_name is not null
 
 SELECT COUNT(Order_Details_SK)
 FROM dim_order_details
 
 
-SELECT customer_id, COUNT(*)
+SELECT Customer_FK, COUNT(*)
 FROM fact_sales
-GROUP BY customer_id
+GROUP BY Customer_FK
 HAVING COUNT(*) > 1
+order by count(*) desc
 
-SELECT DISTINCT state
+SELECT DISTINCT state, state_name
 FROM dim_geolocation
 

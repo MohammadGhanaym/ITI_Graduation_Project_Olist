@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="9_fact_marketing_leads"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{05A58126-C8A5-4AEC-A47D-14B756BE3A8D}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{8DAB3132-1816-42FA-930F-54E2727A847A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -438,6 +438,10 @@
                       refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[product_catalog_size]"
                       dataType="i4"
                       name="product_catalog_size" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[market_lead_SK]"
+                      dataType="i4"
+                      name="market_lead_SK" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2710,16 +2714,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132,42"
+          Size="143,42"
           Id="Package\Clear Table"
           TopLeft="211.5,121" />
         <NodeLayout
-          Size="206,42"
+          Size="217,42"
           Id="Package\Load fact_marketing_leads"
           TopLeft="173,194.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="276.75,163">
+          TopLeft="282.25,163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2748,32 +2752,64 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="128,42"
+          Size="131,42"
           Id="Package\Load fact_marketing_leads\get sdr_sk"
-          TopLeft="249.5,449.5" />
+          TopLeft="248.5,486.5" />
         <NodeLayout
-          Size="122,42"
+          Size="131,42"
           Id="Package\Load fact_marketing_leads\get sr_sk"
-          TopLeft="252.5,381.5" />
+          TopLeft="255.5,410.5" />
         <NodeLayout
-          Size="133,42"
+          Size="168,42"
+          Id="Package\Load fact_marketing_leads\Script Component"
+          TopLeft="239.5,191.5" />
+        <NodeLayout
+          Size="143,42"
           Id="Package\Load fact_marketing_leads\get lead_sk"
-          TopLeft="250.5,232.5" />
+          TopLeft="251.5,259.5" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Load fact_marketing_leads\fact_marketing_leads"
-          TopLeft="229.5,520.5" />
-        <NodeLayout
-          Size="138,42"
+          Size="144,42"
           Id="Package\Load fact_marketing_leads\get seller_sk"
-          TopLeft="246.5,303.5" />
+          TopLeft="249.5,330.5" />
         <NodeLayout
-          Size="150,42"
+          Size="186,42"
+          Id="Package\Load fact_marketing_leads\fact_marketing_leads"
+          TopLeft="225.5,575.5" />
+        <NodeLayout
+          Size="170,42"
           Id="Package\Load fact_marketing_leads\OLE DB Source"
           TopLeft="242.5,58.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Load fact_marketing_leads\Derived Column"
+          TopLeft="244.5,124.5" />
         <EdgeLayout
-          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output3]"
-          TopLeft="316.5,491.5">
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output1]"
+          TopLeft="321.25,372.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output]"
+          TopLeft="322.25,301.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2796,8 +2832,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output2]"
-          TopLeft="313.5,423.5">
+          Id="Package\Load fact_marketing_leads.Paths[Derived Column Output]"
+          TopLeft="325.25,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Output 0]"
+          TopLeft="323.25,233.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2814,70 +2872,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,3.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output1]"
-          TopLeft="314.5,345.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36"
-              Start="0,0"
-              End="0,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output]"
-          TopLeft="316.25,274.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,4.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Load fact_marketing_leads\Derived Column"
-          TopLeft="244.5,124.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load fact_marketing_leads\Script Component"
-          TopLeft="240.5,176.5" />
         <EdgeLayout
           Id="Package\Load fact_marketing_leads.Paths[OLE DB Source Output]"
-          TopLeft="319.5,100.5">
+          TopLeft="327.25,100.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2898,71 +2898,51 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load fact_marketing_leads.Paths[Derived Column Output]"
-          TopLeft="244.5,145.5">
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output3]"
+          TopLeft="316.25,528.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-4,52"
+              EndConnector="0,47"
               Start="0,0"
-              End="-11.5,52">
+              End="0,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-22.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,0"
-                    Point2="-26.5,0"
-                    Point3="-26.5,4" />
-                  <mssgle:LineSegment
-                    End="-26.5,48" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-26.5,48"
-                    Point2="-26.5,52"
-                    Point3="-22.5,52" />
-                  <mssgle:LineSegment
-                    End="-11.5,52" />
+                    End="0,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load fact_marketing_leads.Paths[Output 0]"
-          TopLeft="403.5,197.5">
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output2]"
+          TopLeft="317.5,452.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20,56"
+              EndConnector="0,34"
               Start="0,0"
-              End="-12.5,56">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,52" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,52"
-                    Point2="22.5,56"
-                    Point3="18.5,56" />
-                  <mssgle:LineSegment
-                    End="-12.5,56" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3038,19 +3018,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load fact_marketing_leads\fact_marketing_leads">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load fact_marketing_leads\get seller_sk">
     <Properties>
       <Property>
@@ -3070,6 +3037,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\fact_marketing_leads">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

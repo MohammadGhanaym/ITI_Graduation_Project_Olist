@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Marketing Channel Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|solutionrelative:Olist_Reporting\\Marketing Channel Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Sales Performance by State.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|solutionrelative:Olist_Reporting\\Sales Performance by State.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Seller Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|solutionrelative:Olist_Reporting\\Seller Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Sales Rep Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|solutionrelative:Olist_Reporting\\Sales Rep Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Payment Provider Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|solutionrelative:Olist_Reporting\\Payment Provider Performance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Delivery Performance over Time.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{7AEE2A40-1978-BFB9-AF1B-A300C99F9076}|Olist_Reporting\\Olist_Reporting.rptproj|solutionrelative:Olist_Reporting\\Delivery Performance over Time.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cab27b98-a314-48d2-9746-efe8ba39ccb0}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Seller Performance.rdl [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Seller Performance.rdl",
+              "RelativeDocumentMoniker": "Olist_Reporting\\Seller Performance.rdl",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Seller Performance.rdl [Design]",
+              "RelativeToolTip": "Olist_Reporting\\Seller Performance.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-24T21:42:03.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Sales Rep Performance.rdl [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Sales Rep Performance.rdl",
+              "RelativeDocumentMoniker": "Olist_Reporting\\Sales Rep Performance.rdl",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Sales Rep Performance.rdl [Design]",
+              "RelativeToolTip": "Olist_Reporting\\Sales Rep Performance.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-24T21:41:50.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sales Performance by State.rdl [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Sales Performance by State.rdl",
+              "RelativeDocumentMoniker": "Olist_Reporting\\Sales Performance by State.rdl",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Sales Performance by State.rdl [Design]",
+              "RelativeToolTip": "Olist_Reporting\\Sales Performance by State.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-24T21:41:15.239Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Payment Provider Performance.rdl [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Payment Provider Performance.rdl",
+              "RelativeDocumentMoniker": "Olist_Reporting\\Payment Provider Performance.rdl",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Payment Provider Performance.rdl [Design]",
+              "RelativeToolTip": "Olist_Reporting\\Payment Provider Performance.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-24T21:40:19.333Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Marketing Channel Performance.rdl [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Marketing Channel Performance.rdl",
+              "RelativeDocumentMoniker": "Olist_Reporting\\Marketing Channel Performance.rdl",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Marketing Channel Performance.rdl [Design]",
+              "RelativeToolTip": "Olist_Reporting\\Marketing Channel Performance.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-24T20:57:41.997Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Delivery Performance over Time.rdl [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Delivery Performance over Time.rdl",
+              "RelativeDocumentMoniker": "Olist_Reporting\\Delivery Performance over Time.rdl",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\SSRS\\Olist_Reporting\\Olist_Reporting\\Delivery Performance over Time.rdl [Design]",
+              "RelativeToolTip": "Olist_Reporting\\Delivery Performance over Time.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-24T20:56:33.786Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

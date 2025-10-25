@@ -3,52 +3,48 @@
   "WorkspaceRootPath": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Master_Package.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Master_Package.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Geolocation_Sellers_Customers.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Geolocation_Sellers_Customers.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\7_fact_sales.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\7_fact_sales.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Master.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Master.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\8_fact_payment.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\8_fact_payment.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Payment.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Fact_Payment.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\9_fact_marketing_leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\9_fact_marketing_leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Marketing_Leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Fact_Marketing_Leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\4_dim_payment_type.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\4_dim_payment_type.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Sales.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Fact_Sales.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\10_dim_date_time.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\10_dim_date_time.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Date_Time.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Date_Time.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\3_order_details.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\3_order_details.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Products.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Products.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\2_dim_products.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\2_dim_products.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Payment_Type.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Payment_Type.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\6_dim_leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\6_dim_leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Sales_Rep.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Sales_Rep.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\5_dim_sales_rep.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\5_dim_sales_rep.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Leads.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\1_dim_sellers_and_customers.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\1_dim_sellers_and_customers.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\8_fact_payment_type.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dwh_creation\\8_fact_payment_type.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Order_Details.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{B74C8BE9-EE07-AE01-44A9-3531BA6E252A}|dwh_creation\\dwh_creation.dtproj|solutionrelative:dwh_creation\\Dim_Order_Details.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,150 +54,147 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Master_Package.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Master_Package.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\Master_Package.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Master_Package.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\Master_Package.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T20:10:35.531Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "4_dim_payment_type.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\4_dim_payment_type.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\4_dim_payment_type.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\4_dim_payment_type.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\4_dim_payment_type.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T12:30:44.953Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "9_fact_marketing_leads.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\9_fact_marketing_leads.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\9_fact_marketing_leads.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\9_fact_marketing_leads.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\9_fact_marketing_leads.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T11:20:35.519Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "8_fact_payment.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\8_fact_payment.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\8_fact_payment.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\8_fact_payment.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\8_fact_payment.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T14:25:31.168Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cab27b98-a314-48d2-9746-efe8ba39ccb0}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "7_fact_sales.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\7_fact_sales.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\7_fact_sales.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\7_fact_sales.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\7_fact_sales.dtsx [Design]",
+              "Title": "Master.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Master.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Master.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Master.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Master.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T14:40:55.327Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "10_dim_date_time.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\10_dim_date_time.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\10_dim_date_time.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\10_dim_date_time.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\10_dim_date_time.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T20:08:10.605Z",
+              "WhenOpened": "2025-10-23T23:48:18.715Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "3_order_details.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\3_order_details.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\3_order_details.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\3_order_details.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\3_order_details.dtsx [Design]",
+              "Title": "Dim_Products.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Products.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Products.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Products.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Products.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-16T12:21:10.746Z",
+              "WhenOpened": "2025-10-24T00:30:18.311Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dim_Date_Time.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Date_Time.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Date_Time.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Date_Time.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Date_Time.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-10-24T02:14:11.641Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Fact_Sales.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Sales.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Fact_Sales.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Sales.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Fact_Sales.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-10-24T02:29:27.801Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dim_Geolocation_Sellers_Customers.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Geolocation_Sellers_Customers.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Geolocation_Sellers_Customers.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Geolocation_Sellers_Customers.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Geolocation_Sellers_Customers.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-10-23T23:31:48.62Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "2_dim_products.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\2_dim_products.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\2_dim_products.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\2_dim_products.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\2_dim_products.dtsx [Design]",
+              "Title": "Dim_Payment_Type.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Payment_Type.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Payment_Type.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Payment_Type.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Payment_Type.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-15T12:43:32.27Z",
+              "WhenOpened": "2025-10-24T01:46:25.791Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Fact_Marketing_Leads.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Marketing_Leads.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Fact_Marketing_Leads.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Marketing_Leads.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Fact_Marketing_Leads.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-10-24T02:30:01.361Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Fact_Payment.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Payment.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Fact_Payment.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Fact_Payment.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Fact_Payment.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-10-24T02:29:48.345Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "6_dim_leads.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\6_dim_leads.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\6_dim_leads.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\6_dim_leads.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\6_dim_leads.dtsx [Design]",
+              "Title": "Dim_Sales_Rep.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Sales_Rep.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Sales_Rep.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Sales_Rep.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Sales_Rep.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-15T22:36:07.074Z",
+              "WhenOpened": "2025-10-24T02:14:34.098Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "5_dim_sales_rep.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\5_dim_sales_rep.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\5_dim_sales_rep.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\5_dim_sales_rep.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\5_dim_sales_rep.dtsx [Design]",
+              "Title": "Dim_Leads.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Leads.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Leads.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Leads.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Leads.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-15T14:58:23.068Z",
+              "WhenOpened": "2025-10-24T02:28:36.144Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "1_dim_sellers_and_customers.dtsx [Design]",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\1_dim_sellers_and_customers.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\1_dim_sellers_and_customers.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\1_dim_sellers_and_customers.dtsx [Design]",
-              "RelativeToolTip": "dwh_creation\\1_dim_sellers_and_customers.dtsx [Design]",
+              "Title": "Dim_Order_Details.dtsx [Design]",
+              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Order_Details.dtsx",
+              "RelativeDocumentMoniker": "dwh_creation\\Dim_Order_Details.dtsx",
+              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\Dim_Order_Details.dtsx [Design]",
+              "RelativeToolTip": "dwh_creation\\Dim_Order_Details.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-14T18:21:16.141Z",
+              "WhenOpened": "2025-10-24T00:48:15.822Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "8_fact_payment_type.dtsx",
-              "DocumentMoniker": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\8_fact_payment_type.dtsx",
-              "RelativeDocumentMoniker": "dwh_creation\\8_fact_payment_type.dtsx",
-              "ToolTip": "F:\\Workspace\\ITI_Graduation_Project\\dwh_creation\\dwh_creation\\8_fact_payment_type.dtsx",
-              "RelativeToolTip": "dwh_creation\\8_fact_payment_type.dtsx",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2025-10-17T16:33:19.258Z"
             }
           ]
         }
