@@ -1,0 +1,6 @@
+ISNULL(c_customer_id) ==  TRUE 
+
+(ISNULL(geo_key) ? -1 : geo_key) != (ISNULL(c_geo_key) ? -1 : c_geo_key) && (ISNULL(EndDate) ==  TRUE )
+
+
+((DT_WSTR,255)REPLACENULL([Customer Full Name],"<NULL>") != (DT_WSTR,255)REPLACENULL([c_cCustomer Full Name],"<NULL>")) || ((ISNULL(age) ? -1 : age) != (ISNULL(c_age) ? -1 : c_age))

@@ -1,0 +1,3065 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/16/2025 2:20:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-4OLE76B"
+  DTS:CreatorName="DESKTOP-4OLE76B\moham"
+  DTS:DTSID="{31D1141E-CDC2-4B2C-82B0-F1C241C2B746}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="9_fact_marketing_leads"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{8DAB3132-1816-42FA-930F-54E2727A847A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_db]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{28CDA8C2-CBC5-4BD7-ADA6-7A2208A5005A}"
+      DTS:ObjectName="localhost\MSSQLSERVER01.olist_db">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\MSSQLSERVER01;Initial Catalog=olist_db;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-load_fact_marketing_leads-{28CDA8C2-CBC5-4BD7-ADA6-7A2208A5005A}localhost\MSSQLSERVER01.olist_db;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{63DCE593-51E1-47FC-A637-DF3E03998B2E}"
+      DTS:ObjectName="localhost\MSSQLSERVER01.olist_dwh">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\MSSQLSERVER01;Initial Catalog=olist_dwh;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-load_fact_marketing_leads-{63DCE593-51E1-47FC-A637-DF3E03998B2E}localhost\MSSQLSERVER01.olist_dwh;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clear Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6d7493b8-c76a-447c-a279-bc9322547d15}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63DCE593-51E1-47FC-A637-DF3E03998B2E}"
+          SQLTask:SqlStatementSource="EXEC sp_msforeachtable &quot;ALTER TABLE ? NOCHECK CONSTRAINT all&quot;;&#xA;&#xA;DELETE FROM [fact_marketing_leads]&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load fact_marketing_leads"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9f661172-7973-49d6-ad8b-6d207e66ad31}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load fact_marketing_leads"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load fact_marketing_leads\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input].Columns[business_segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="business_segment"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]},"N/A")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(business_segment,"N/A")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input].Columns[business_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="business_type"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]},"N/A")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(business_type,"N/A")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input].Columns[lead_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lead_type"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]},"N/A")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(lead_type,"N/A")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input].Columns[lead_behavior_profile]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lead_behavior_profile"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]},"N/A")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(lead_behavior_profile,"N/A")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input].Columns[origin]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="origin"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]},"N/A")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(origin,"N/A")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\fact_marketing_leads"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="fact_marketing_leads"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[fact_marketing_leads]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load fact_marketing_leads\fact_marketing_leads.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[mql_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mql_id"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Mql_id]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[mql_id]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[landing_page_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="landing_page_id"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Landing_page_id]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[landing_page_id]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[lead_closed]"
+                      cachedDataType="i4"
+                      cachedName="lead_closed"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[lead_closed]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_closed]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[declared_monthly_revenue]"
+                      cachedDataType="numeric"
+                      cachedName="declared_monthly_revenue"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Declared_monthly_revenue]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[declared_monthly_revenue]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[product_catalog_size]"
+                      cachedDataType="i4"
+                      cachedName="product_catalog_size"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[product_catalog_size]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[product_catalog_size]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[lead_SK]"
+                      cachedDataType="i4"
+                      cachedName="lead_SK"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Lead_FK]"
+                      lineageId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Match Output].Columns[lead_SK]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[Seller_SK]"
+                      cachedDataType="i4"
+                      cachedName="Seller_SK"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Seller_FK]"
+                      lineageId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Match Output].Columns[Seller_SK]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[sr_sk]"
+                      cachedDataType="i4"
+                      cachedName="sr_sk"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Sr_Employee_FK]"
+                      lineageId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Match Output].Columns[sr_sk]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[sdr_sk]"
+                      cachedDataType="i4"
+                      cachedName="sdr_sk"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Sdr_Employee_FK]"
+                      lineageId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Match Output].Columns[sdr_sk]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[deal_close_time]"
+                      cachedDataType="i4"
+                      cachedName="deal_close_time"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Lead_to_Win_Days]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[deal_close_time]" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].Columns[won_date_key]"
+                      cachedDataType="i4"
+                      cachedName="won_date_key"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Won_Date_FK]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[won_date_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Mql_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="Mql_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Lead_FK]"
+                      dataType="i4"
+                      name="Lead_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Seller_FK]"
+                      dataType="i4"
+                      name="Seller_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Sdr_Employee_FK]"
+                      dataType="i4"
+                      name="Sdr_Employee_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Sr_Employee_FK]"
+                      dataType="i4"
+                      name="Sr_Employee_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Won_Date_FK]"
+                      dataType="i4"
+                      name="Won_Date_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Landing_page_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="Landing_page_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Lead_to_Win_Days]"
+                      dataType="i4"
+                      name="Lead_to_Win_Days" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[lead_closed]"
+                      dataType="bool"
+                      name="lead_closed" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[Declared_monthly_revenue]"
+                      dataType="numeric"
+                      name="Declared_monthly_revenue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[product_catalog_size]"
+                      dataType="i4"
+                      name="product_catalog_size" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input].ExternalColumns[market_lead_SK]"
+                      dataType="i4"
+                      name="market_lead_SK" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\fact_marketing_leads.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\fact_marketing_leads.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\fact_marketing_leads.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\fact_marketing_leads.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\get lead_sk"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="get lead_sk"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_leads]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_leads]) [refTable]
+where [refTable].[Lead_type] = ? and [refTable].[Lead_behavior_profile] = ? and [refTable].[Business_segment] = ? and [refTable].[Business_type] = ? and [refTable].[Origin] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="lead_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Lead_type" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Lead_behavior_profile" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Business_type" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Business_segment" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Origin" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]};#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]};#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]};#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]};#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load fact_marketing_leads\get lead_sk.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input].Columns[lead_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lead_type"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Lead_type</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input].Columns[lead_behavior_profile]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lead_behavior_profile"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Lead_behavior_profile</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input].Columns[business_segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="business_segment"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Business_segment</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input].Columns[business_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="business_type"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Business_type</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input].Columns[origin]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="origin"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Origin</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Match Output].Columns[lead_SK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Match Output].Columns[lead_SK]"
+                      name="lead_SK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">lead_SK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\get sdr_sk"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="get sdr_sk"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_sales_rep]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_sales_rep]) [refTable]
+where [refTable].[sales_rep_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Sales_Rep_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sales_rep_id" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sales_Rep_name" dataType="DT_WSTR" length="1025" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gender" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Role" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="facebook_user_id" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sdr_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load fact_marketing_leads\get sdr_sk.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\get sdr_sk.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get sdr_sk.Inputs[Lookup Input].Columns[sdr_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sdr_id"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sdr_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sales_rep_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get sdr_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Match Output].Columns[sdr_sk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Match Output].Columns[sdr_sk]"
+                      name="sdr_sk"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Sales_Rep_SK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get sdr_sk.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get sdr_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\get seller_sk"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="get seller_sk"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_sellers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_sellers]) [refTable]
+where [refTable].[seller_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Seller_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="seller_id" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Seller Full Name" dataType="DT_WSTR" length="1025" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gender" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="geo_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[seller_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load fact_marketing_leads\get seller_sk.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\get seller_sk.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get seller_sk.Inputs[Lookup Input].Columns[seller_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="seller_id"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[seller_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">seller_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get seller_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Match Output].Columns[Seller_SK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Match Output].Columns[Seller_SK]"
+                      name="Seller_SK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Seller_SK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get seller_sk.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get seller_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\get sr_sk"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="get sr_sk"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_sales_rep]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_sales_rep]) [refTable]
+where [refTable].[sales_rep_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Sales_Rep_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sales_rep_id" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sales_Rep_name" dataType="DT_WSTR" length="1025" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gender" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Role" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="facebook_user_id" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sr_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load fact_marketing_leads\get sr_sk.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\get sr_sk.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\get sr_sk.Inputs[Lookup Input].Columns[sr_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sr_id"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sr_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sales_rep_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get sr_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Match Output].Columns[sr_sk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Match Output].Columns[sr_sk]"
+                      name="sr_sk"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Sales_Rep_SK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get sr_sk.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load fact_marketing_leads\get sr_sk.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	ql.mql_id,
+	seller_id,
+	sdr_id,
+	sr_id,
+	cd.lead_type,				-- Will be used to get the Lead_SK
+	cd.lead_behavior_profile,	-- Will be used to get the Lead_SK
+	cd.business_segment,		-- Will be used to get the Lead_SK
+	cd.business_type,			-- Will be used to get the Lead_SK
+	ql.origin,					-- Will be used to get the Lead_SK
+	ql.landing_page_id,
+	CONVERT(INT, CONVERT(VARCHAR(8), CONVERT(DATE, won_date), 112)) won_date_key,
+	DATEDIFF(DAY, first_contact_date, won_date) deal_close_time,
+	CASE WHEN cd.mql_id IS NULL THEN 0 ELSE 1 END lead_closed,
+	declared_monthly_revenue,
+	product_catalog_size
+FROM marketing_qualified_leads ql
+LEFT JOIN closed_deals cd
+ON ql.mql_id = cd.mql_id</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load fact_marketing_leads\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_db]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost\MSSQLSERVER01.olist_db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[mql_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mql_id]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[mql_id]"
+                      name="mql_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[seller_id]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      name="seller_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sdr_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sdr_id]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sdr_id]"
+                      name="sdr_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sr_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sr_id]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[sr_id]"
+                      name="sr_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lead_type]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]"
+                      name="lead_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lead_behavior_profile]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]"
+                      name="lead_behavior_profile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[business_segment]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]"
+                      name="business_segment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[business_type]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]"
+                      name="business_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[origin]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]"
+                      name="origin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[landing_page_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[landing_page_id]"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[landing_page_id]"
+                      name="landing_page_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[won_date_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[won_date_key]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[won_date_key]"
+                      name="won_date_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[deal_close_time]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[deal_close_time]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[deal_close_time]"
+                      name="deal_close_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_closed]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lead_closed]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_closed]"
+                      name="lead_closed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[declared_monthly_revenue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[declared_monthly_revenue]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[declared_monthly_revenue]"
+                      name="declared_monthly_revenue"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[product_catalog_size]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[product_catalog_size]"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[product_catalog_size]"
+                      name="product_catalog_size"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mql_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="mql_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[seller_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sdr_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="sdr_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sr_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="sr_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lead_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="lead_type" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lead_behavior_profile]"
+                      dataType="wstr"
+                      length="255"
+                      name="lead_behavior_profile" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[business_segment]"
+                      dataType="wstr"
+                      length="255"
+                      name="business_segment" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[business_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="business_type" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[origin]"
+                      dataType="wstr"
+                      length="255"
+                      name="origin" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[landing_page_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="landing_page_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[won_date_key]"
+                      dataType="i4"
+                      name="won_date_key" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[deal_close_time]"
+                      dataType="i4"
+                      name="deal_close_time" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[lead_closed]"
+                      dataType="i4"
+                      name="lead_closed" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[declared_monthly_revenue]"
+                      dataType="numeric"
+                      name="declared_monthly_revenue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[product_catalog_size]"
+                      dataType="i4"
+                      name="product_catalog_size" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mql_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mql_id]"
+                      name="mql_id" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[seller_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[seller_id]"
+                      name="seller_id" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sdr_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sdr_id]"
+                      name="sdr_id" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sr_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sr_id]"
+                      name="sr_id" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lead_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lead_type]"
+                      name="lead_type" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lead_behavior_profile]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lead_behavior_profile]"
+                      name="lead_behavior_profile" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[business_segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[business_segment]"
+                      name="business_segment" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[business_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[business_type]"
+                      name="business_type" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[origin]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[origin]"
+                      name="origin" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[landing_page_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[landing_page_id]"
+                      name="landing_page_id" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[won_date_key]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[won_date_key]"
+                      name="won_date_key" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[deal_close_time]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[deal_close_time]"
+                      name="deal_close_time" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lead_closed]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[lead_closed]"
+                      name="lead_closed" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[declared_monthly_revenue]"
+                      dataType="numeric"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[declared_monthly_revenue]"
+                      name="declared_monthly_revenue"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[product_catalog_size]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[product_catalog_size]"
+                      name="product_catalog_size" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load fact_marketing_leads\Script Component"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Script Component"
+              version="13">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System;
+using System.Data;
+using System.Globalization;
+#endregion
+using System.Globalization;
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        /*
+         * Add your code here
+         */
+        Row.leadtype = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Row.leadtype.Replace("_", " ").ToLower());
+
+        Row.leadbehaviorprofile = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Row.leadbehaviorprofile.Replace("_", " ").ToLower());
+
+        Row.businesstype = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Row.businesstype.Replace("_", " ").ToLower());
+
+        Row.businesssegment = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Row.businesssegment.Replace("_", " ").ToLower());
+
+        Row.origin = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Row.origin.Replace("_", " ").ToLower());
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_81f1cd72178245bb8468c71a4ab32125.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a42e0fda-9431-4636-b63d-84548b18918d}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_81f1cd72178245bb8468c71a4ab32125</RootNamespace>
+    <AssemblyName>SC_F70A577A21FA4393A4620B070FD62230</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_81f1cd72178245bb8468c71a4ab32125" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String businesssegment
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool businesssegment_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String businesstype
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool businesstype_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String leadtype
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool leadtype_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String leadbehaviorprofile
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[3]);
+        }
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool leadbehaviorprofile_IsNull
+    {
+        get
+        {
+            return IsNull(3);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String origin
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[4]);
+        }
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool origin_IsNull
+    {
+        get
+        {
+            return IsNull(4);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_81f1cd72178245bb8468c71a4ab32125.Properties.Settings.get_Default():SC_81f1cd72178245bb8468c71a4ab32125.Properties.Sett" +
+    "ings")]
+
+namespace SC_81f1cd72178245bb8468c71a4ab32125.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_81f1cd72178245bb8468c71a4ab32125</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_81f1cd72178245bb8468c71a4ab32125</msb:DisplayName>
+    <msb:ProjectId>{3F20945A-C25B-49DF-94C0-CA8314040D9D}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_81f1cd72178245bb8468c71a4ab32125.csproj" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_81f1cd72178245bb8468c71a4ab32125")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_81f1cd72178245bb8468c71a4ab32125")]
+[assembly: AssemblyCopyright("Copyright @  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_81f1cd72178245bb8468c71a4ab32125.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_81f1cd72178245bb8468c71a4ab32125.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_81f1cd72178245bb8468c71a4ab32125.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_81f1cd72178245bb8468c71a4ab32125.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_81f1cd72178245bb8468c71a4ab32125.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_F70A577A21FA4393A4620B070FD62230.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKb39GgAAAAAAAAAAOAAIiALATAAABgAAAAIAAAAAAAA1jYA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIQ2AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA3BYAAAAgAAAAGAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAaAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC4
+NgAAAAAAAEgAAAACAAUAjCMAAEASAAABAAAAAAAAAMw1AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAUA7AAAAAAAAAADKBIAAApv
+EwAACgNvDgAABnIBAABwcgUAAHBvFAAACm8VAAAKbxYAAApvDwAABgMoEgAACm8TAAAKA28SAAAG
+cgEAAHByBQAAcG8UAAAKbxUAAApvFgAACm8TAAAGAygSAAAKbxMAAAoDbwoAAAZyAQAAcHIFAABw
+bxQAAApvFQAACm8WAAAKbwsAAAYDKBIAAApvEwAACgNvBgAABnIBAABwcgUAAHBvFAAACm8VAAAK
+bxYAAApvBwAABgMoEgAACm8TAAAKA28WAAAGcgEAAHByBQAAcG8UAAAKbxUAAApvFgAACm8XAAAG
+Kh4CKBwAAAYqKgIDBAUoFwAACipSAnsYAAAKAnsZAAAKFpRvGgAACiomAhYDKBsAAAoqIgIWKBwA
+AAoqWgMsCAIWKB0AAAoqcgkAAHBzHgAACnpSAnsYAAAKAnsZAAAKF5RvGgAACiomAhcDKBsAAAoq
+IgIXKBwAAAoqWgMsCAIXKB0AAAoqcgkAAHBzHgAACnpSAnsYAAAKAnsZAAAKGJRvGgAACiomAhgD
+KBsAAAoqIgIYKBwAAAoqWgMsCAIYKB0AAAoqcgkAAHBzHgAACnpSAnsYAAAKAnsZAAAKGZRvGgAA
+CiomAhkDKBsAAAoqIgIZKBwAAAoqWgMsCAIZKB0AAAoqcgkAAHBzHgAACnpSAnsYAAAKAnsZAAAK
+GpRvGgAACiomAhoDKBsAAAoqIgIaKBwAAAoqWgMsCAIaKB0AAAoqcgkAAHBzHgAACnoeAigfAAAK
+Kh4CKCAAAAoqfgIoIQAACgICcyAAAAZ9AQAABAICcyEAAAZ9AgAABCqSBHKmAABwGm8iAAAKLBUC
+BQIDKCMAAAoOBHMFAAAGbx4AAAYqSisHAgNvHwAABgNvGgAABi3xKgYqOgIoJAAACgIDfQMAAAQq
+OgIoJAAACgIDfQQAAAQqHgIoJAAACiqufgUAAAQtHnK2AABw0AcAAAIoJQAACm8mAAAKcycAAAqA
+BQAABH4FAAAEKhp+BgAABCoeAoAGAAAEKhp+BwAABCoeAigoAAAKKi5zJwAABoAHAAAEKkJTSkIB
+AAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAABwHAAAjfgAAiAcAAMwHAAAjU3RyaW5ncwAA
+AABUDwAAKAEAACNVUwB8EAAAEAAAACNHVUlEAAAAjBAAALQBAAAjQmxvYgAAAAAAAAACAAABVxWg
+AQkBAAAA+gEzABYAAAEAAAAgAAAACAAAAAcAAAAoAAAAFwAAACgAAAAQAAAAAwAAAA0AAAAYAAAA
+AQAAAAQAAAABAAAAAACAAwEAAAAAAAYAdwLaBQYACwPaBQYAwwHHBQ8ATgYAAAYA8AEHBQYAWgIH
+BQYAOwIHBQYA8gIHBQYAlwIHBQYAsAIHBQYABwIHBQYAIgJGAwoAywK1AAoAkQW1AA4AggW1AAoA
+XQW1AAoAPAe1AAYA1wapBAYApgHHBQYAogX6BQYARAXyBBIAdgFqAxIA1wFqAxIAUgHdBAYAiwHa
+BQYAVAXyBAYAYwOpBAYAGQWpBAYAMwWpBAYA1gCpBAYAVwCpBAYAwQcHBQAAAAAlAAAAAAABAAEA
+AQAQALwEAAAQAAEAAQABABAAdQUAADkAAQAFAAEAEAAeBwAARQABABwAAQAQAMsGAABJAAMAIAAB
+ABAAjAYAAEkABAAhAAAAEAABBl0GSQAFACIAAAEQALsGXQZhAAcAJgAGAMsGjgAGAIwGkgABACwH
+lgABACwHlgARALAEmgARAC8BngARAEcAogBQIAAAAADGACkDBgABAFggAAAAAMYANAMGAAEAYCAA
+AAAAxgCeB6YAAQBYIQAAAACGGLoFBgACAGAhAAAAAIYYugU0AAIAayEAAAAAhgj2BisABQCAIQAA
+AACGCAoHEAAFAIohAAAAAIYIYgRWAAYAkyEAAAAAhgh9BKwABgCqIQAAAACGCPUAKwAHAL8hAAAA
+AIYIBgEQAAcAySEAAAAAhggOBFYACADSIQAAAACGCCYErAAIAOkhAAAAAIYI2wArAAkA/iEAAAAA
+hgjoABAACQAIIgAAAACGCOYDVgAKABEiAAAAAIYI+gOsAAoAKCIAAAAAhgh7ACsACwA9IgAAAACG
+CJMAEAALAEciAAAAAIYIqANWAAwAUCIAAAAAhgjHA6wADABnIgAAAACGCMcEKwANAHwiAAAAAIYI
+0gQQAA0AhiIAAAAAhgg+BFYADgCPIgAAAACGCFAErAAOAKYiAAAAAIYAtQdWAA8AriIAAAAAhgDe
+BlYADwC2IgAAAACGGLoFBgAPANYiAAAAAMYAkQexAA8A+yIAAAAAxgGKB6YAEwAOIwAAAADGAZ4H
+pgAUABAjAAAAAIYYugW7ABUAHyMAAAAAhhi6BbsAFgAuIwAAAACDGLoFBgAXADYjAAAAAJMIngXB
+ABcAYiMAAAAAkwgXARsAFwBpIwAAAACTCCMBxgAXAHEjAAAAAJYI6gbMABgAeCMAAAAAhhi6BQYA
+GACAIwAAAACRGMAF0QAYAAAAAQC5BwAAAQCXBQAAAgCWBgAAAwBrBQAAAQBAAwAAAQBAAwAAAQBA
+AwAAAQBAAwAAAQBAAwAAAQBAAwAAAQBAAwAAAQBAAwAAAQBAAwAAAQBAAwAAAQAuAAAAAgCrAAAA
+AwCXBQAABABrBQAAAQCXBQAAAQC5BwAAAQBCBwAAAQBCBwAAAQBAAwkAugUBABEAugUGABkAugUK
+ACkAugUQADEAugUQADkAugUQAEEAugUQAEkAugUQAFEAugUQAFkAugUQAGEAugUQAGkAugUGAJkA
+ugUGALkAugUVAMkAugUGAIkAKQMGAIkANAMGAKkAPwEbAKkAUAUgANkAPwAlANkAsgUrANEAagEv
+AHEAugU0AHEAlwU+AHEAlgZCAHkAYANGAHEAoARLAHEAkQRRAHEAmAQBAOEAugUQAHEAtQdWAHEA
+3gZWAIkAugUGANkAxAZaAIkAqgZhAJEAugUGAPEAaQBnAPEAvQduAKEAugV0AMEAugUGAC4ACwDs
+AC4AEwD1AC4AGwAUAS4AIwAdAS4AKwBGAS4AMwBGAS4AOwBGAS4AQwAdAS4ASwBMAS4AUwBGAS4A
+WwBjAUMAYwCtAeEAewCtAeMAawCtAWkBcwAUAYkBcwAUAQMAAQAHAAsACAANAAAADgfVAAAAgQTZ
+AAAACgHVAAAAKgTZAAAA7ADVAAAA/gPZAAAAlwDVAAAAywPZAAAA1gTVAAAAVATZAAAAogXdAAAA
+SgHiAAAA7gbnAAIABgADAAEABwADAAIACAAFAAEACQAFAAIACgAHAAEACwAHAAIADAAJAAEADQAJ
+AAIADgALAAEADwALAAIAEAANAAEAEQANAAIAEgAPAAEAEwAPAAIAFAARAAEAFQARAAIAFgATAAEA
+FwATAAIAGAAVAAEAGQAVAAIAIwAXAAIAJAAZAAEAJQAZAAIAJgAbAASAAAABAAAAAAAAAAAAAAAA
+AAEAAAAEAAAAAAAAAAAAAAB8ADYAAAAAABAAAAAAAAAAAAAAAIUATAcAAAAAEAAAAAAAAAAAAAAA
+hQBpBwAAAAAEAAAAAAAAAAAAAAB8AKkEAAAAAAAAAAABAAAACwYAAAAAAFNDX0Y3MEE1NzdBMjFG
+QTQzOTNBNDYyMEIwNzBGRDYyMjMwADxNb2R1bGU+AElucHV0SUQAbXNjb3JsaWIAUmVwbGFjZQBk
+ZWZhdWx0SW5zdGFuY2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAZ2V0X2xl
+YWRiZWhhdmlvcnByb2ZpbGUAc2V0X2xlYWRiZWhhdmlvcnByb2ZpbGUASW5wdXROYW1lAE1pY3Jv
+c29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVsaW5lAFR5cGUAZ2V0X2xlYWR0eXBlAHNldF9sZWFkdHlw
+ZQBnZXRfYnVzaW5lc3N0eXBlAHNldF9idXNpbmVzc3R5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1
+cmUAcmVzb3VyY2VDdWx0dXJlAGdldF9DdXJyZW50Q3VsdHVyZQBBcHBsaWNhdGlvblNldHRpbmdz
+QmFzZQBUb1RpdGxlQ2FzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0
+dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUA
+RWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlU
+cmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmln
+dXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9u
+UmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29w
+eXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFz
+c2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBQcmVF
+eGVjdXRlAFBvc3RFeGVjdXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAR2V0U3Ry
+aW5nAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ19GNzBBNTc3QTIxRkE0MzkzQTQ2MjBCMDcwRkQ2
+MjIzMC5kbGwAZ2V0X2xlYWRiZWhhdmlvcnByb2ZpbGVfSXNOdWxsAHNldF9sZWFkYmVoYXZpb3Jw
+cm9maWxlX0lzTnVsbABnZXRfbGVhZHR5cGVfSXNOdWxsAHNldF9sZWFkdHlwZV9Jc051bGwAZ2V0
+X2J1c2luZXNzdHlwZV9Jc051bGwAc2V0X2J1c2luZXNzdHlwZV9Jc051bGwAZ2V0X29yaWdpbl9J
+c051bGwAc2V0X29yaWdpbl9Jc051bGwAZ2V0X2J1c2luZXNzc2VnbWVudF9Jc051bGwAc2V0X2J1
+c2luZXNzc2VnbWVudF9Jc051bGwAU2V0TnVsbABzZXRfSXRlbQBTeXN0ZW0AcmVzb3VyY2VNYW4A
+U2NyaXB0TWFpbgBnZXRfb3JpZ2luAHNldF9vcmlnaW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lz
+dGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24ASW52YWxpZE9wZXJhdGlvbkV4Y2Vw
+dGlvbgBTdHJpbmdDb21wYXJpc29uAEN1bHR1cmVJbmZvAGdldF9UZXh0SW5mbwBPdXRwdXROYW1l
+TWFwAE91dHB1dE1hcABJbnB1dDBCdWZmZXIAUGlwZWxpbmVCdWZmZXIAU2NyaXB0QnVmZmVyAGdl
+dF9SZXNvdXJjZU1hbmFnZXIAVG9Mb3dlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNz
+AFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTQ184MWYx
+Y2Q3MjE3ODI0NWJiODQ2OGM3MWE0YWIzMjEyNS5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJj
+ZXMARGVidWdnaW5nTW9kZXMAU0NfODFmMWNkNzIxNzgyNDViYjg0NjhjNzFhNGFiMzIxMjUuUHJv
+cGVydGllcwBWYXJpYWJsZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFNl
+dHRpbmdzAEVxdWFscwBDb25uZWN0aW9ucwBPYmplY3QARW5kT2ZSb3dzZXQAZ2V0X0RlZmF1bHQA
+Z2V0X2J1c2luZXNzc2VnbWVudABzZXRfYnVzaW5lc3NzZWdtZW50AFVzZXJDb21wb25lbnQAUGFy
+ZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5wdXQASW5w
+dXQwX1Byb2Nlc3NJbnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQAAAAADXwAAAyAAAICbSQBz
+AE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAA
+dABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0
+AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAcVMA
+QwBfADgAMQBmADEAYwBkADcAMgAxADcAOAAyADQANQBiAGIAOAA0ADYAOABjADcAMQBhADQAYQBi
+ADMAMgAxADIANQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAA6D9A
+vC2T+UKZC6eGwgJwmQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERWQQAABJVBCAAEmkFIAIODg4D
+IAAOBCABDg4JIAMBEj0dCBJBAwYSPQMGHQgEIAEOCAUgAgEIHAQgAQIIAyAAAgYgAgIOEXUFIAEd
+CAgGAAESeRF9BSAAEoCBByACAQ4SgIEIt3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGEkUDBhJR
+AwYSVQMGEiAFIAEBEgwEIAEBAgkgBAEIDhI9EkEFIAEBEkUEAAASUQUAAQESVQQAABIgAwAAAQMo
+AA4DKAACBAgAElEECAASVQQIABIgCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhy
+b3dzAQgBAAIAAAAAACgBACNTQ184MWYxY2Q3MjE3ODI0NWJiODQ2OGM3MWE0YWIzMjEyNQAABQEA
+AAAAFgEAEUNvcHlyaWdodCBAICAyMDI1AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcB
+AFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwQBAAAAAAC0AAAAzsrv
+vgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJz
+aW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0
+ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBB
+RFC0AAAArDYAAAAAAAAAAAAAxjYAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAALg2AAAAAAAAAAAA
+AAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgA
+AABYQAAA7AMAAAAAAAAAAAAA7AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAA
+AL0E7/4AAAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAA
+AQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAA
+AAAAAACwBEwDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACgDAAABADAAMAAwADAA
+MAA0AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5
+AE4AYQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAA
+UwBDAF8AOAAxAGYAMQBjAGQANwAyADEANwA4ADIANAA1AGIAYgA4ADQANgA4AGMANwAxAGEANABh
+AGIAMwAyADEAMgA1AAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAA
+LgAwAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwBGADcAMABBADUANwA3
+AEEAMgAxAEYAQQA0ADMAOQAzAEEANAA2ADIAMABCADAANwAwAEYARAA2ADIAMgAzADAALgBkAGwA
+bAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0
+ACAAQAAgACAAMgAwADIANQAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAA
+AAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAQwBfAEYANwAw
+AEEANQA3ADcAQQAyADEARgBBADQAMwA5ADMAQQA0ADYAMgAwAEIAMAA3ADAARgBEADYAMgAyADMA
+MAAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAEMAXwA4ADEAZgAx
+AGMAZAA3ADIAMQA3ADgAMgA0ADUAYgBiADgANAA2ADgAYwA3ADEAYQA0AGEAYgAzADIAMQAyADUA
+AAA0AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAI
+AAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAANg2AAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_f70a577a21fa4393a4620b070fd62230</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">C3</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0].Columns[business_segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="business_segment"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_segment]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0].Columns[business_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="business_type"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[business_type]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0].Columns[lead_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lead_type"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_type]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0].Columns[lead_behavior_profile]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lead_behavior_profile"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[lead_behavior_profile]"
+                      usageType="readWrite" />
+                    <inputColumn
+                      refId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0].Columns[origin]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="origin"
+                      lineageId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output].Columns[origin]"
+                      usageType="readWrite" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load fact_marketing_leads\Script Component.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[Derived Column Output]"
+              endId="Package\Load fact_marketing_leads\Script Component.Inputs[Input 0]"
+              name="Derived Column Output"
+              startId="Package\Load fact_marketing_leads\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[Lookup Match Output]"
+              endId="Package\Load fact_marketing_leads\get seller_sk.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load fact_marketing_leads\get lead_sk.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[Lookup Match Output1]"
+              endId="Package\Load fact_marketing_leads\get sr_sk.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load fact_marketing_leads\get seller_sk.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[Lookup Match Output2]"
+              endId="Package\Load fact_marketing_leads\get sdr_sk.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load fact_marketing_leads\get sr_sk.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[Lookup Match Output3]"
+              endId="Package\Load fact_marketing_leads\fact_marketing_leads.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load fact_marketing_leads\get sdr_sk.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[OLE DB Source Output]"
+              endId="Package\Load fact_marketing_leads\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load fact_marketing_leads\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load fact_marketing_leads.Paths[Output 0]"
+              endId="Package\Load fact_marketing_leads\get lead_sk.Inputs[Lookup Input]"
+              name="Output 0"
+              startId="Package\Load fact_marketing_leads\Script Component.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{165124ea-2f0e-489e-90af-001072e85042}"
+      DTS:From="Package\Clear Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load fact_marketing_leads" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Clear Table"
+          TopLeft="211.5,121" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Load fact_marketing_leads"
+          TopLeft="173,194.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="282.25,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.5"
+              Start="0,0"
+              End="0,24">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load fact_marketing_leads">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Load fact_marketing_leads\get sdr_sk"
+          TopLeft="248.5,486.5" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Load fact_marketing_leads\get sr_sk"
+          TopLeft="255.5,410.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load fact_marketing_leads\Script Component"
+          TopLeft="239.5,191.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Load fact_marketing_leads\get lead_sk"
+          TopLeft="251.5,259.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Load fact_marketing_leads\get seller_sk"
+          TopLeft="249.5,330.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Load fact_marketing_leads\fact_marketing_leads"
+          TopLeft="225.5,575.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Load fact_marketing_leads\OLE DB Source"
+          TopLeft="242.5,58.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Load fact_marketing_leads\Derived Column"
+          TopLeft="244.5,124.5" />
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output1]"
+          TopLeft="321.25,372.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output]"
+          TopLeft="322.25,301.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Derived Column Output]"
+          TopLeft="325.25,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Output 0]"
+          TopLeft="323.25,233.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[OLE DB Source Output]"
+          TopLeft="327.25,100.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output3]"
+          TopLeft="316.25,528.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load fact_marketing_leads.Paths[Lookup Match Output2]"
+          TopLeft="317.5,452.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\get sdr_sk">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_sales_rep]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\get sr_sk">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_sales_rep]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\get lead_sk">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_leads]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\get seller_sk">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_sellers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\fact_marketing_leads">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load fact_marketing_leads\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,2 +1,0 @@
-[Avg Deal Close Time] = [Measures].[Lead To Win Days]/[Measures].[Closed Deals Count]
-[Conversion Rate] = [Measures].[Closed Deals Count]/[Measures].[Leads Count]

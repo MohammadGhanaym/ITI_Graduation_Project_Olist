@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Olist_DA", "Olist_DA\Olist_DA.dwproj", "{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}.Development|Default.ActiveCfg = Development
+		{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}.Development|Default.Build.0 = Development
+		{B58831E3-EF73-BB0C-6DC4-C413AE3A5DCA}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {421E2A0A-2ADC-4995-834A-9D5156A27BFD}
+	EndGlobalSection
+EndGlobal
