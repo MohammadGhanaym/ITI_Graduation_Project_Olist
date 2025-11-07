@@ -236,6 +236,51 @@ You'll need SQL Server (with SSIS, SSAS, and SSRS), Power BI Desktop, Python 3.8
 
 This is our ITI graduation project. We learned a ton working through this end-to-end BI solution and applying everything from database fundamentals to machine learning.
 
+**Project Team:**
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/mohamed-ghanaym01/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+        <br />
+        <b>Mohamed Ghanaym</b>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/sondos-mohamed-said/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+        <br />
+        <b>Sondos Mohamed</b>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/reaal-salah/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+        <br />
+        <b>Reaal Salah</b>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/abdelwahed-nasr/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+        <br />
+        <b>Abdelwahed Nasr</b>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/basma-hesham/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+        <br />
+        <b>Basma Hesham</b>
+      </a>
+    </td>
+    <td></td>
+  </tr>
+</table>
+
 ---
 
 Feel free to explore the code, and if you have any questions, open an issue!
